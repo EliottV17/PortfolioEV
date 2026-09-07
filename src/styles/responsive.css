@@ -1,0 +1,157 @@
+/* 1. Pantallas medianas / Laptops (hasta 1340px) */
+@media (max-width: 1340px) {
+  .ascii-avatar {
+    font-size: 8px;
+  }
+
+  .about-content {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .pane-about {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .pane-experience {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .pane-projects {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .pane-skills {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+  .pane-contact {
+    grid-column: 1 / 3;
+    grid-row: 4;
+  }
+
+  .about-content h1 br {
+    display: none;
+  }
+
+  .about-content h1 em {
+    margin-left: 14px;
+  }
+
+  .about-content > div:last-child {
+    flex: 1;
+    min-width: 220px;
+  }
+
+  .bio {
+    max-width: 100%;
+  }
+
+  .about-meta {
+    margin-top: 12px;
+  }
+
+  /* Aquí se aplica correctamente el grid de contacto de 3 columnas */
+  .contact-grid {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr 1.5fr;
+  }
+
+  .contact-primary {
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .contact-socials {
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+/* 2. Dispositivos móviles y tablets pequeñas (hasta 600px) */
+@media (max-width: 600px) {
+  .terminal-title {
+    display: none;
+  }
+
+  .workspace {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .pane {
+    width: 100%;
+    border-right: 0;
+    flex-shrink: 0;
+    height: auto;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .ascii-avatar {
+    font-size: 5px;
+    margin: 0;
+  }
+
+  .about-content h1 {
+    font-size: 32px;
+  }
+
+  /* Restaura el salto de línea y quita el margen en móvil para que no se descuadre centrado */
+  .about-content h1 br {
+    display: block;
+  }
+
+  .about-content h1 em {
+    margin-left: 0;
+  }
+
+  .about-meta {
+    justify-content: center;
+    padding: 0 16px 20px;
+  }
+
+  .timeline {
+    padding: 16px;
+  }
+
+  .skill-categories {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .skill-category {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-category:last-child {
+    border-bottom: 0;
+  }
+
+  /* Vuelve a apilar el contacto en una sola columna para móviles */
+  .contact-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .contact-primary,
+  .contact-socials {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
