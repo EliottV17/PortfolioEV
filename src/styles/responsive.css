@@ -88,10 +88,19 @@
 }
 
 @media (max-width: 600px) {
+  .terminal-shell,
+  .terminal-window {
+    height: auto !important;
+    min-height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+
   .workspace {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: visible !important;
+    padding-bottom: 28px;
   }
 
   .pane {
@@ -166,10 +175,14 @@
     display: none !important;
   }
 
-  .status-bar {
-    padding: 0 8px;
-    font-size: 0.75rem;
-    gap: 6px;
+.status-bar {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-card);
   }
 
   .status-right {
