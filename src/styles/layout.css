@@ -13,7 +13,7 @@
   overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #0d0c0c;
+  background: var(--surface-terminal);
   box-shadow:
     0 24px 80px #0008,
     0 0 0 1px #000;
@@ -41,13 +41,6 @@
     background-color 0.2s ease-in-out;
 }
 
-.pane:hover {
-  z-index: 2;
-  box-shadow:
-    inset 0 0 0 1px var(--bright),
-    inset 0 0 12px rgba(220, 215, 186, 0.05);
-}
-
 .pane-heading {
   height: 36px;
   padding: 0 16px;
@@ -59,15 +52,6 @@
   letter-spacing: 0.03em;
   border-bottom: 1px solid var(--color-border);
   transition: color 0.15s ease;
-}
-
-.pane:hover .pane-heading span:nth-child(2) {
-  color: var(--yellow);
-  text-shadow: 0 0 6px rgba(138, 154, 123, 0.4);
-}
-
-.pane:hover .pane-mark {
-  color: var(--bright);
 }
 
 .pane-number,

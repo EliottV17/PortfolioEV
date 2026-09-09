@@ -11,6 +11,39 @@
 }
 
 @media (max-width: 1340px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .terminal-shell {
+    min-height: 100dvh;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .terminal-window {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .workspace {
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .pane {
+    min-height: auto;
+    overflow: visible;
+  }
+
   .ascii-avatar {
     font-size: 6px;
   }
@@ -22,11 +55,6 @@
 
   .about-content h1 {
     font-size: clamp(32px, 4vw, 44px);
-  }
-
-  .workspace {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
   }
 
   .pane-about {
@@ -60,7 +88,7 @@
 
   .about-content > div:last-child {
     flex: 1;
-    min-width: 220px;
+    min-width: 0;
   }
 
   .bio {
@@ -85,16 +113,13 @@
     border-bottom: 0;
     border-right: 1px solid var(--color-border);
   }
+
+  .skill-categories {
+    height: auto;
+  }
 }
 
 @media (max-width: 600px) {
-  html,
-  body {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: auto;
-    min-height: 100%;
-  }
   .terminal-shell,
   .terminal-window {
     display: block;
@@ -102,13 +127,11 @@
     min-height: 100dvh;
     border-radius: 0;
     border: none;
-    overflow: visible;
   }
 
   .workspace {
     display: flex;
     flex-direction: column;
-    overflow: visible;
     padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
   }
 
@@ -117,7 +140,6 @@
     border-right: 0;
     flex-shrink: 0;
     height: auto;
-    overflow: visible;
   }
 
   .about-content {
