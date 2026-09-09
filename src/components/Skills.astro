@@ -1,44 +1,95 @@
+---
+import { useTranslations, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <section class="pane pane-skills" aria-labelledby="skills-title">
   <div class="pane-heading">
-    <span class="pane-number">04</span><span id="skills-title">skills</span
-    ><span class="pane-mark">▾</span>
+    <span class="pane-number">04</span>
+    <span id="skills-title">{t('nav.skills')}</span>
+    <span class="pane-mark">▾</span>
   </div>
   <div class="skill-categories">
     <div class="skill-category">
-      <span class="category-label">Languages & Frameworks</span>
-      <span class="skill highlighted"> TypeScript</span>
-      <span class="skill sub-skill"> React</span>
-      <span class="skill sub-skill"> NestJS</span>
-      <span class="skill sub-skill"> Express.js</span>
+      <span class="category-label">{t('skills.languages')}</span>
+      <div class="skill-columns">
+        <div class="skill-col">
+          <span class="skill highlighted">TypeScript</span>
+          <span class="skill sub-skill">NestJS</span>
+          <span class="skill sub-skill">Express</span>
+          <span class="skill sub-skill">React</span>
+          <span class="skill highlighted skill-spaced">Go</span>
+        </div>
+        <div class="skill-col">
+          <span class="skill highlighted">Python</span>
+          <span class="skill sub-skill">FastAPI</span>
+        </div>
+      </div>
+    </div>
 
-      <span class="skill highlighted" style="margin-top: 10px;"> Python</span>
-      <span class="skill sub-skill"> FastAPI</span>
+    <div class="skill-category">
+      <span class="category-label">{t('skills.databases')}</span>
+      <div class="skill-columns">
+        <div class="skill-col">
+          <span class="skill highlighted">SQL</span>
+          <span class="skill sub-skill">PostgreSQL</span>
+          <span class="skill sub-skill">MySQL</span>
+          <span class="skill sub-skill">TypeORM</span>
+          <span class="skill sub-skill">SQLModel</span>
+        </div>
+        <div class="skill-col">
+          <span class="skill highlighted">NoSQL</span>
+          <span class="skill sub-skill">MongoDB</span>
+          <span class="skill sub-skill">Redis</span>
+        </div>
+      </div>
+    </div>
 
-      <span class="skill highlighted" style="margin-top: 10px;"> Go</span>
-    </div>
     <div class="skill-category">
-      <span class="category-label">Databases</span>
-      <span class="skill"> PostgreSQL</span>
-      <span class="skill"> MySQL</span>
-      <span class="skill"> SQL Server</span>
-      <span class="skill"> MongoDB</span>
+      <span class="category-label">{t('skills.architecture')}</span>
+      <div class="skill-columns">
+        <div class="skill-col">
+          <span class="skill highlighted">APIs</span>
+          <span class="skill sub-skill">REST APIs</span>
+          <span class="skill sub-skill">API Gateway</span>
+          <span class="skill sub-skill">JWT</span>
+          <span class="skill sub-skill">Jest</span>
+          <span class="skill sub-skill">Pytest</span>
+        </div>
+        <div class="skill-col">
+          <span class="skill highlighted">Architecture</span>
+          <span class="skill sub-skill">Microservices</span>
+          <span class="skill sub-skill">Hexagonal Arch.</span>
+          <span class="skill sub-skill">SOLID</span>
+          <span class="skill sub-skill">Clean Code</span>
+          <span class="skill sub-skill">TDD</span>
+          <span class="skill sub-skill">{t('skills.designPattern')}</span>
+        </div>
+      </div>
     </div>
+
     <div class="skill-category">
-      <span class="category-label">APIs & Architecture</span>
-      <span class="skill">REST APIs</span>
-      <span class="skill">API Gateway</span>
-      <span class="skill">Microservices</span>
-      <span class="skill">SOLID</span>
-      <span class="skill">Hexagonal Architecture</span>
-      <span class="skill">Clean Code</span>
-    </div>
-    <div class="skill-category">
-      <span class="category-label">Cloud & DevOps</span>
-      <span class="skill"> Docker</span>
-      <span class="skill"> AWS</span>
-      <span class="skill">Git</span>
-      <span class="skill">GitHub Actions</span>
-      <span class="skill">CI/CD</span>
+      <span class="category-label">{t('skills.cloud')}</span>
+      <div class="skill-columns">
+        <div class="skill-col">
+          <span class="skill highlighted">Cloud</span>
+          <span class="skill sub-skill">Docker</span>
+          <span class="skill sub-skill">IAM</span>
+          <span class="skill sub-skill">EC2</span>
+        </div>
+        <div class="skill-col">
+          <span class="skill highlighted">DevOps</span>
+          <span class="skill sub-skill">Git</span>
+          <span class="skill sub-skill">GitHub Actions</span>
+          <span class="skill sub-skill">CI/CD</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

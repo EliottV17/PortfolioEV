@@ -30,11 +30,22 @@
 }
 
 .pane {
+  position: relative;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+  transition:
+    box-shadow 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.pane:hover {
+  z-index: 2;
+  box-shadow:
+    inset 0 0 0 1px var(--bright),
+    inset 0 0 12px rgba(220, 215, 186, 0.05);
 }
 
 .pane-heading {
@@ -47,6 +58,16 @@
   text-transform: lowercase;
   letter-spacing: 0.03em;
   border-bottom: 1px solid var(--color-border);
+  transition: color 0.15s ease;
+}
+
+.pane:hover .pane-heading span:nth-child(2) {
+  color: var(--yellow);
+  text-shadow: 0 0 6px rgba(138, 154, 123, 0.4);
+}
+
+.pane:hover .pane-mark {
+  color: var(--bright);
 }
 
 .pane-number,
@@ -63,18 +84,22 @@
   grid-column: 1;
   grid-row: 1;
 }
+
 .pane-experience {
   grid-column: 2;
   grid-row: 1;
 }
+
 .pane-projects {
   grid-column: 3;
   grid-row: 1;
 }
+
 .pane-skills {
   grid-column: 1 / 3;
   grid-row: 2;
 }
+
 .pane-contact {
   grid-column: 3;
   grid-row: 2;

@@ -1,0 +1,133 @@
+---
+import '../styles/global.css';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined } }, // Genera la raíz / (inglés)
+    { params: { lang: 'es' } }, // Genera /es/ (español)
+  ];
+}
+
+const { lang } = Astro.params;
+const currentLang = lang === 'es' ? 'es' : 'en';
+---
+
+<html lang={currentLang} class="dark" style="color-scheme: dark;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23c4746e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M10 6l10 10-10 10'/></svg>"
+    />
+    <meta name="theme-color" content="#090808" />
+    <meta name="color-scheme" content="dark" />
+    <title>Eliott Velarde — Backend engineer</title>
+    <meta
+      name="description"
+      content="The portfolio of Eliott Velarde, a backend engineer."
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="antialiased">
+    <main class="terminal-shell">
+      <div class="terminal-window">
+        <div class="workspace">
+          <About lang={currentLang} />
+          <Experience lang={currentLang} />
+          <Projects lang={currentLang} />
+          <Skills lang={currentLang} />
+          <Contact lang={currentLang} />
+        </div>
+        <footer class="status-bar">
+          <span class="status-mode">●</span><span>main</span>
+          <span class="status-separator status-hide-mobile">│</span>
+          <span class="status-hide-mobile">portfolio.astro</span>
+
+          <span class="status-right">
+            <span
+              class="lang-switch"
+              role="navigation"
+              aria-label="Language selector"
+            >
+              <a
+                href="/"
+                class:list={['lang-link', { active: currentLang === 'en' }]}
+                aria-current={currentLang === 'en' ? 'page' : undefined}>en</a
+              ><span class="lang-sep">/</span><a
+                href="/es"
+                class:list={['lang-link', { active: currentLang === 'es' }]}
+                aria-current={currentLang === 'es' ? 'page' : undefined}>es</a
+              >
+            </span>
+
+            <span class="status-separator status-hide-mobile">│</span>
+            <span class="status-hide-mobile">utf-8</span>
+
+            <span id="nvim-percent">0%</span>
+            <b id="nvim-cursor" class="status-hide-mobile">Ln 1, Col 01</b>
+          </span>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
+<script is:inline>
+  const percentEl = document.getElementById('nvim-percent');
+  const cursorEl = document.getElementById('nvim-cursor');
+  const workspaceEl = document.querySelector('.workspace');
+
+  const TOTAL_LINES = 148;
+
+  function updateStatusLine() {
+    if (!workspaceEl) return;
+
+    const scrollTop = workspaceEl.scrollTop;
+    const scrollHeight = workspaceEl.scrollHeight - workspaceEl.clientHeight;
+
+    // Calcula el progreso dentro del contenedor scrollable real
+    const progress =
+      scrollHeight > 0
+        ? Math.min(Math.round((scrollTop / scrollHeight) * 100), 100)
+        : 100;
+    const currentLine = Math.max(1, Math.round((progress / 100) * TOTAL_LINES));
+
+    if (percentEl) {
+      percentEl.textContent =
+        progress === 0 ? 'Top' : progress === 100 ? 'Bot' : `${progress}%`;
+    }
+
+    if (cursorEl) {
+      const col = cursorEl.getAttribute('data-col') || '01';
+      cursorEl.textContent = `Ln ${currentLine}, Col ${col}`;
+    }
+  }
+
+  // Escucha el scroll del contenedor interno en lugar de window
+  if (workspaceEl) {
+    workspaceEl.addEventListener('scroll', updateStatusLine, { passive: true });
+    updateStatusLine();
+  }
+
+  // La columna sigue respondiendo al puntero
+  window.addEventListener('mousemove', (e) => {
+    if (!cursorEl) return;
+    const col = Math.max(
+      1,
+      Math.min(Math.round((e.clientX / window.innerWidth) * 80), 80),
+    );
+    // Asegura siempre 2 dígitos con padStart (ej: "01", "09", "45")
+    const colFormatted = col.toString().padStart(2, '0');
+    cursorEl.setAttribute('data-col', colFormatted);
+    const line = cursorEl.textContent?.split(',')[0] || 'Ln 1';
+    cursorEl.textContent = `${line}, Col ${colFormatted}`;
+  });
+</script>
