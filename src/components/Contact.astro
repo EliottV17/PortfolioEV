@@ -1,15 +1,25 @@
+---
+import { useTranslations, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <section class="pane pane-contact" aria-labelledby="contact-title">
   <div class="pane-heading">
     <span class="pane-number">05</span>
-    <span id="contact-title">contact me</span>
+    <span id="contact-title">{t('nav.contact')}</span>
     <span class="pane-mark">▾</span>
   </div>
 
   <div class="contact-grid">
     <div class="contact-primary">
       <p class="contact-copy">
-        Do you have a project in mind or are your <br />looking for a backend
-        developer? Let's talk.
+        {t('contact.copy')}
       </p>
       <a class="contact-link" href="mailto:eliottvelardeverde5@gmail.com">
         eliottvelardeverde5@gmail.com <span>↗</span>
@@ -17,7 +27,7 @@
     </div>
 
     <div class="contact-socials">
-      <span class="category-label">Network</span>
+      <span class="category-label">{t('contact.network')}</span>
       <a
         href="https://www.linkedin.com/in/eliott-velarde/"
         target="_blank"
@@ -28,20 +38,39 @@
         target="_blank"
         rel="noopener noreferrer"> GitHub</a
       >
-      <a href="#cv"> Resume / CV</a>
     </div>
 
     <div class="contact-terminal">
-      <span class="category-label">System Info</span>
+      <span class="category-label">{t('contact.sysInfo')}</span>
       <p class="sys-info">
-        <span>Location:</span> Lima, Callao (UTC-5)
+        <span>{t('contact.locationLabel')}</span>
+        {t('contact.locationValue')}
       </p>
       <p class="sys-info">
-        <span>Status:</span> Open to opportunities
+        <span>{t('contact.statusLabel')}</span>
+        {t('contact.statusValue')}
       </p>
-      <div class="terminal-cmd">
-        <span class="prompt">$</span> curl -O eliott.dev/cv.pdf<span
-          class="cursor"></span>
+      <div class="cli-box">
+        <a
+          href="/cv_en.pdf"
+          download="Eliott_Velarde_CV_EN.pdf"
+          rel="noopener noreferrer"
+          class="terminal-line"
+          title={t('contact.cvEnTitle')}
+        >
+          <span class="prompt">$</span> curl -O eliott.dev/cv-en.pdf
+        </a>
+        <a
+          href="/cv_es.pdf"
+          download="Eliott_Velarde_CV_ES.pdf"
+          hreflang="es"
+          rel="noopener noreferrer"
+          class="terminal-line"
+          title={t('contact.cvEsTitle')}
+        >
+          <span class="prompt">$</span> curl -O eliott.dev/cv-es.pdf<span
+            class="cursor"></span>
+        </a>
       </div>
     </div>
   </div>
