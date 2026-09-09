@@ -1,39 +1,30 @@
-<<<<<<< HEAD
-/* 1. Pantallas medianas / Laptops (hasta 1340px) */
-@media (max-width: 1340px) {
-  .ascii-avatar {
-    font-size: 8px;
-  }
-=======
 @media (max-width: 1640px) {
   .ascii-avatar {
     font-size: 10px;
   }
 }
+
 @media (max-width: 1440px) {
   .ascii-avatar {
     font-size: 8px;
   }
 }
+
 /* Pantallas medianas (hasta 1340px) */
 @media (max-width: 1340px) {
   .ascii-avatar {
     font-size: 6px;
   }
->>>>>>> 1d35790 (Portfolio finished)
 
   .about-content {
     gap: 16px;
     padding: 24px 20px;
   }
 
-<<<<<<< HEAD
-=======
   .about-content h1 {
     font-size: clamp(32px, 4vw, 44px);
   }
 
->>>>>>> 1d35790 (Portfolio finished)
   .workspace {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
@@ -81,14 +72,8 @@
     margin-top: 12px;
   }
 
-<<<<<<< HEAD
-  /* Aquí se aplica correctamente el grid de contacto de 3 columnas */
-  .contact-grid {
-    display: grid !important;
-=======
   .contact-grid {
     display: grid;
->>>>>>> 1d35790 (Portfolio finished)
     grid-template-columns: 1.2fr 1fr 1.5fr;
   }
 
@@ -103,17 +88,8 @@
   }
 }
 
-<<<<<<< HEAD
-/* 2. Dispositivos móviles y tablets pequeñas (hasta 600px) */
-@media (max-width: 600px) {
-  .terminal-title {
-    display: none;
-  }
-
-=======
 /* 2. Dispositivos móviles (hasta 600px) */
 @media (max-width: 600px) {
->>>>>>> 1d35790 (Portfolio finished)
   .workspace {
     display: flex;
     flex-direction: column;
@@ -145,10 +121,6 @@
     font-size: 32px;
   }
 
-<<<<<<< HEAD
-  /* Restaura el salto de línea y quita el margen en móvil para que no se descuadre centrado */
-=======
->>>>>>> 1d35790 (Portfolio finished)
   .about-content h1 br {
     display: block;
   }
@@ -181,14 +153,8 @@
     border-bottom: 0;
   }
 
-<<<<<<< HEAD
-  /* Vuelve a apilar el contacto en una sola columna para móviles */
-  .contact-grid {
-    display: flex !important;
-=======
   .contact-grid {
     display: flex;
->>>>>>> 1d35790 (Portfolio finished)
     flex-direction: column;
   }
 
@@ -197,8 +163,7 @@
     border-right: 0;
     border-bottom: 1px solid var(--color-border);
   }
-<<<<<<< HEAD
-=======
+
   .status-hide-mobile {
     display: none !important;
   }
@@ -212,5 +177,4 @@
   .status-right {
     gap: 6px;
   }
->>>>>>> 1d35790 (Portfolio finished)
 }
