@@ -7,10 +7,7 @@ import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
 
 export function getStaticPaths() {
-  return [
-    { params: { lang: undefined } }, // Genera la raíz / (inglés)
-    { params: { lang: 'es' } }, // Genera /es/ (español)
-  ];
+  return [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
 }
 
 const { lang } = Astro.params;
@@ -22,7 +19,7 @@ const currentLang = lang === 'es' ? 'es' : 'en';
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
     <link
       rel="icon"
@@ -30,10 +27,18 @@ const currentLang = lang === 'es' ? 'es' : 'en';
     />
     <meta name="theme-color" content="#090808" />
     <meta name="color-scheme" content="dark" />
-    <title>Eliott Velarde — Backend engineer</title>
+    <title>
+      {
+        currentLang === 'es'
+          ? 'Eliott Velarde — Ingeniero Backend'
+          : 'Eliott Velarde — Backend Engineer'
+      }
+    </title>
     <meta
       name="description"
-      content="The portfolio of Eliott Velarde, a backend engineer."
+      content={currentLang === 'es'
+        ? 'Portafolio de Eliott Velarde. Ingeniero Backend especializado en desarrollo de APIs, microservicios y arquitecturas escalables.'
+        : 'Portfolio of Eliott Velarde. Backend Engineer specialized in API development, microservices, and scalable architectures.'}
     />
     <meta name="generator" content={Astro.generator} />
   </head>
@@ -63,7 +68,7 @@ const currentLang = lang === 'es' ? 'es' : 'en';
                 class:list={['lang-link', { active: currentLang === 'en' }]}
                 aria-current={currentLang === 'en' ? 'page' : undefined}>en</a
               ><span class="lang-sep">/</span><a
-                href="/es"
+                href="/es/"
                 class:list={['lang-link', { active: currentLang === 'es' }]}
                 aria-current={currentLang === 'es' ? 'page' : undefined}>es</a
               >
@@ -81,53 +86,60 @@ const currentLang = lang === 'es' ? 'es' : 'en';
   </body>
 </html>
 <script is:inline>
-  const percentEl = document.getElementById('nvim-percent');
   const cursorEl = document.getElementById('nvim-cursor');
-  const workspaceEl = document.querySelector('.workspace');
+  const percentEl = document.getElementById('nvim-percent');
 
-  const TOTAL_LINES = 148;
+  const updateScrollStatus = () => {
+    if (!cursorEl || !percentEl) return;
 
-  function updateStatusLine() {
-    if (!workspaceEl) return;
+    const scrollTop = window.scrollY;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
 
-    const scrollTop = workspaceEl.scrollTop;
-    const scrollHeight = workspaceEl.scrollHeight - workspaceEl.clientHeight;
+    const totalLines = Math.max(
+      10,
+      Math.floor(document.documentElement.scrollHeight / 24),
+    );
 
-    // Calcula el progreso dentro del contenedor scrollable real
-    const progress =
-      scrollHeight > 0
-        ? Math.min(Math.round((scrollTop / scrollHeight) * 100), 100)
-        : 100;
-    const currentLine = Math.max(1, Math.round((progress / 100) * TOTAL_LINES));
+    let scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    if (percentEl) {
-      percentEl.textContent =
-        progress === 0 ? 'Top' : progress === 100 ? 'Bot' : `${progress}%`;
+    const currentLine = Math.max(
+      1,
+      Math.min(totalLines, Math.round(scrollPercent * totalLines)),
+    );
+
+    const col = cursorEl.getAttribute('data-col') || '01';
+
+    cursorEl.textContent = `Ln ${currentLine}, Col ${col}`;
+
+    if (scrollTop === 0) {
+      percentEl.textContent = 'Top';
+    } else if (
+      Math.ceil(scrollTop + window.innerHeight) >=
+      document.documentElement.scrollHeight
+    ) {
+      percentEl.textContent = 'Bot';
+    } else {
+      percentEl.textContent = `${Math.round(scrollPercent * 100)}%`;
     }
+  };
 
-    if (cursorEl) {
-      const col = cursorEl.getAttribute('data-col') || '01';
-      cursorEl.textContent = `Ln ${currentLine}, Col ${col}`;
-    }
-  }
-
-  // Escucha el scroll del contenedor interno en lugar de window
-  if (workspaceEl) {
-    workspaceEl.addEventListener('scroll', updateStatusLine, { passive: true });
-    updateStatusLine();
-  }
-
-  // La columna sigue respondiendo al puntero
   window.addEventListener('mousemove', (e) => {
     if (!cursorEl) return;
     const col = Math.max(
       1,
       Math.min(Math.round((e.clientX / window.innerWidth) * 80), 80),
     );
-    // Asegura siempre 2 dígitos con padStart (ej: "01", "09", "45")
     const colFormatted = col.toString().padStart(2, '0');
     cursorEl.setAttribute('data-col', colFormatted);
-    const line = cursorEl.textContent?.split(',')[0] || 'Ln 1';
-    cursorEl.textContent = `${line}, Col ${colFormatted}`;
+
+    const lineText = cursorEl.textContent?.split(',')[0] || 'Ln 1';
+    cursorEl.textContent = `${lineText}, Col ${colFormatted}`;
   });
+
+  window.addEventListener('scroll', updateScrollStatus, { passive: true });
+  window.addEventListener('resize', updateScrollStatus, { passive: true });
+
+  // Inicialización
+  updateScrollStatus();
 </script>
