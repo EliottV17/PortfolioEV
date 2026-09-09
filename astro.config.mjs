@@ -8,8 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-<<<<<<< HEAD
-=======
   devToolbar: {
     enabled: false,
   },
@@ -20,5 +18,4 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
->>>>>>> 1d35790 (Portfolio finished)
 });

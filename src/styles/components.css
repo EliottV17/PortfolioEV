@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /* Contact Section */
 .contact-grid {
   display: flex;
@@ -99,7 +97,6 @@ a.terminal-line:hover {
   color: var(--red);
 }
 
->>>>>>> 1d35790 (Portfolio finished)
 /* Editor Bar & Tabs */
 .editor-bar {
   height: 37px;
@@ -108,16 +105,19 @@ a.terminal-line:hover {
   background: #0d0c0c;
   border-bottom: 1px solid var(--color-border);
 }
+
 .editor-brand {
   padding: 11px 16px;
   color: var(--red);
   font-weight: 700;
   letter-spacing: 0.08em;
 }
+
 .editor-bar nav {
   display: flex;
   overflow: hidden;
 }
+
 .tab {
   color: var(--color-muted);
   border: 0;
@@ -126,18 +126,22 @@ a.terminal-line:hover {
   padding: 0 14px;
   cursor: pointer;
 }
+
 .tab:hover,
 .tab.active {
   color: var(--bright);
   background: var(--color-card);
 }
+
 .tab.active {
   box-shadow: inset 0 -2px var(--red);
 }
+
 .tab-index {
   color: var(--color-muted);
   margin-right: 7px;
 }
+
 .editor-mode {
   margin-left: auto;
   padding: 11px 16px;
@@ -153,26 +157,26 @@ a.terminal-line:hover {
   padding: 30px 32px 24px;
   align-items: center;
 }
+
 .ascii-avatar {
   margin: 0;
   line-height: 1.1;
   color: var(--accent);
   flex: 0 0 auto;
-<<<<<<< HEAD
-  font-size: 11px;
-=======
   font-size: 12px;
->>>>>>> 1d35790 (Portfolio finished)
 }
+
 .about-content > div:last-child {
   flex: 1 1 auto;
   min-width: 300px;
 }
+
 .eyebrow,
 .date {
   margin: 0 0 8px;
   color: var(--red);
 }
+
 .about-content h1 {
   margin: 0;
   color: var(--bright);
@@ -181,15 +185,18 @@ a.terminal-line:hover {
   letter-spacing: -0.08em;
   font-weight: 500;
 }
+
 .about-content h1 em {
   color: var(--blue);
   font-style: normal;
 }
+
 .role {
   margin: 16px 0 0;
   color: #a6a69c;
   line-height: 1.5;
 }
+
 .cursor {
   display: inline-block;
   width: 6px;
@@ -199,12 +206,14 @@ a.terminal-line:hover {
   background: var(--red);
   animation: blink 1s steps(2) infinite;
 }
+
 .bio {
   max-width: 360px;
   margin: 23px 0 0;
   color: #a6a69c;
   line-height: 1.7;
 }
+
 .about-meta {
   display: flex;
   gap: 20px;
@@ -219,6 +228,7 @@ a.terminal-line:hover {
 .timeline {
   padding: 20px 22px;
 }
+
 .timeline-item {
   display: flex;
   gap: 15px;
@@ -226,6 +236,7 @@ a.terminal-line:hover {
   padding: 0 0 22px;
   color: #a6a69c;
 }
+
 .timeline-item:not(:last-child)::before {
   content: '';
   position: absolute;
@@ -234,6 +245,7 @@ a.terminal-line:hover {
   bottom: 0;
   border-left: 1px dashed var(--color-border);
 }
+
 .timeline-dot {
   z-index: 1;
   width: 7px;
@@ -243,33 +255,32 @@ a.terminal-line:hover {
   border-radius: 50%;
   background: #0d0c0c;
 }
+
 .current .timeline-dot {
   border-color: var(--red);
   background: var(--red);
   box-shadow: 0 0 0 3px #c4746e22;
 }
+
 .timeline h2 {
   margin: 0 0 5px;
   color: var(--foreground);
   font-size: 12px;
   font-weight: 500;
 }
+
 .timeline p:last-child {
   margin: 0;
-<<<<<<< HEAD
-  color: var(--color-muted);
-  font-size: 11px;
-=======
   color: var(--color-foreground);
   font-size: 11px;
   opacity: 0.7;
->>>>>>> 1d35790 (Portfolio finished)
 }
 
 /* Projects Section */
 .project-list {
   padding: 5px 0;
 }
+
 .project-row {
   display: flex;
   align-items: center;
@@ -277,13 +288,11 @@ a.terminal-line:hover {
   padding: 9px 18px;
   border-bottom: 1px solid var(--color-card);
 }
-<<<<<<< HEAD
-.project-row:hover {
-  background: var(--color-card);
-=======
+
 .project-row:last-child {
   border-bottom: none;
 }
+
 a.project-icon {
   width: 27px;
   height: 27px;
@@ -297,11 +306,12 @@ a.project-icon {
     transform 0.15s ease,
     background-color 0.15s ease;
 }
+
 a.project-icon:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.05);
->>>>>>> 1d35790 (Portfolio finished)
 }
+
 .project-icon {
   width: 27px;
   height: 27px;
@@ -310,12 +320,15 @@ a.project-icon:hover {
   border: 1px solid currentColor;
   color: var(--red);
 }
+
 .project-icon.blue {
   color: var(--blue);
 }
+
 .project-icon.green {
   color: var(--green);
 }
+
 .project-copy {
   display: flex;
   flex-direction: column;
@@ -323,10 +336,12 @@ a.project-icon:hover {
   gap: 3px;
   min-width: 0;
 }
+
 .project-copy strong {
   color: var(--bright);
   font-weight: 500;
 }
+
 .project-copy span {
   color: #a6a69c;
   overflow: hidden;
@@ -334,18 +349,17 @@ a.project-icon:hover {
   white-space: normal;
   word-break: break-word;
 }
+
 .project-copy small {
-<<<<<<< HEAD
-  color: var(--color-muted);
-=======
   margin: 0;
   color: var(--color-foreground);
   opacity: 0.7;
->>>>>>> 1d35790 (Portfolio finished)
 }
+
 .project-row:nth-child(3) .project-copy small {
   display: none;
 }
+
 .project-index {
   margin-left: auto;
   color: var(--color-muted);
@@ -357,6 +371,7 @@ a.project-icon:hover {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   height: calc(100% - 36px);
 }
+
 .skill-category {
   display: flex;
   flex-direction: column;
@@ -365,9 +380,11 @@ a.project-icon:hover {
   padding: 18px 14px;
   border-right: 1px solid var(--color-border);
 }
+
 .skill-category:last-child {
   border-right: 0;
 }
+
 .category-label {
   margin-bottom: 3px;
   color: var(--red);
@@ -375,13 +392,8 @@ a.project-icon:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
 .skill {
-<<<<<<< HEAD
-  padding: 6px 8px;
-  color: #a6a69c;
-  border: 1px solid var(--color-border);
-}
-=======
   display: flex;
   align-items: center;
   gap: 6px;
@@ -394,19 +406,10 @@ a.project-icon:hover {
   text-overflow: ellipsis;
 }
 
->>>>>>> 1d35790 (Portfolio finished)
 .skill.highlighted {
   color: var(--bright);
   border-color: var(--color-accent);
 }
-<<<<<<< HEAD
-.sub-skill {
-  margin-left: 16px;
-  color: var(--color-muted);
-  border-color: transparent;
-  border-left: 2px solid var(--color-border);
-  padding: 4px 8px;
-=======
 
 .sub-skill {
   display: flex;
@@ -421,42 +424,13 @@ a.project-icon:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
->>>>>>> 1d35790 (Portfolio finished)
 }
 
 .sub-skill:hover {
   color: var(--bright);
   border-left-color: var(--color-accent);
 }
-<<<<<<< HEAD
 
-
-/* Contact Section */
-.contact-copy {
-  margin: 20px 18px 12px;
-  color: #a6a69c;
-  line-height: 1.7;
-}
-.contact-link {
-  display: block;
-  margin: 0 18px 18px;
-  color: var(--blue);
-  font-size: 12px;
-}
-.contact-link span {
-  color: var(--red);
-}
-.social-links {
-  display: flex;
-  gap: 14px;
-  padding: 12px 18px;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-muted);
-  font-size: 10px;
-}
-.social-links a:hover {
-  color: var(--bright);
-=======
 .skill-columns {
   display: flex;
   gap: 4px;
@@ -474,7 +448,6 @@ a.project-icon:hover {
 
 .skill-spaced {
   margin-top: 10px;
->>>>>>> 1d35790 (Portfolio finished)
 }
 
 /* Status Bar */
@@ -488,25 +461,29 @@ a.project-icon:hover {
   background: var(--color-card);
   font-size: 10px;
 }
+
 .status-mode {
   color: var(--green);
 }
+
 .status-separator {
   color: var(--color-border);
 }
+
 .status-right {
   margin-left: auto;
 }
+
 .status-right span {
   color: var(--blue);
   margin: 0 12px;
 }
+
 .status-right b {
   color: #a6a69c;
   font-weight: 400;
 }
-<<<<<<< HEAD
-=======
+
 .lang-switch {
   display: inline-flex;
   align-items: center;
@@ -534,11 +511,10 @@ a.project-icon:hover {
 
 #nvim-cursor {
   display: inline-block;
-  min-width: 9ch; /* Reserva el espacio exacto para "Ln 1, Col 01" o "Ln 148, Col 80" */
+  min-width: 9ch;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
->>>>>>> 1d35790 (Portfolio finished)
 
 @keyframes blink {
   50% {
