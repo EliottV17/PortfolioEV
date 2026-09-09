@@ -16,7 +16,7 @@ export const ui = {
     'about.role': 'Backend Developer',
     'about.bio':
       'Focused on building reliable backend applications and efficient APIs. Experienced in developing robust server-side logic and microservices, combined with a solid foundation in React for frontend integration.',
-    'about.location': '⌁ based in Perú',
+    'about.location': '⌁ based in Peru',
     'about.status': '◷ open to new projects',
 
     'exp.item1.date': '2026 — now',
@@ -92,16 +92,16 @@ export const ui = {
       'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar espacios de entrenamiento cercanos.',
 
     'projects.viewRepo': 'Ver repositorio en GitHub de',
-    'skills.languages': 'Lenguajes & Frameworks',
+    'skills.languages': 'Lenguajes y frameworks',
     'skills.databases': 'Bases de datos',
-    'skills.architecture': 'APIs & Arquitectura',
+    'skills.architecture': 'APIs y arquitectura',
     'skills.cloud': 'Cloud & DevOps',
     'skills.tagArchitecture': 'Arquitectura',
-    'skills.designPattern': 'Design Patterns',
+    'skills.designPattern': 'Patrones de diseño',
     'contact.copy':
       '¿Tienes un proyecto en mente o buscas un desarrollador backend? Hablemos.',
     'contact.network': 'Redes',
-    'contact.sysInfo': 'Información del Sistema',
+    'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
     'contact.locationValue': ' Lima, Callao (UTC-5)',
     'contact.statusLabel': 'Estado:',

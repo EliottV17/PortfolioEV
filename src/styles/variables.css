@@ -12,6 +12,8 @@
   color-scheme: dark;
   --background: #090808;
   --foreground: #c5c9c5;
+  --surface-terminal: #0d0c0c;
+  --text-secondary: #a6a69c;
   --card: #181616;
   --border: #282727;
   --muted: #625e5a;
@@ -21,6 +23,8 @@
   --blue: #8ba4b0;
   --yellow: #c4b28a;
   --bright: #dcd7ba;
+  --red-glow: #c4746e22;
+  --hover-overlay: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
