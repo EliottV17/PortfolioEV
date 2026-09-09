@@ -37,9 +37,20 @@
 }
 
 .contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
   color: var(--color-muted);
   font-size: 11px;
   transition: color 0.2s;
+}
+
+.social-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .contact-socials a:hover {
