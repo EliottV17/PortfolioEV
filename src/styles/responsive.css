@@ -10,7 +10,6 @@
   }
 }
 
-/* Pantallas medianas (hasta 1340px) */
 @media (max-width: 1340px) {
   .ascii-avatar {
     font-size: 6px;
@@ -88,12 +87,12 @@
   }
 }
 
-/* 2. Dispositivos móviles (hasta 600px) */
 @media (max-width: 600px) {
   .workspace {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    padding-bottom: 25px;
   }
 
   .pane {
@@ -176,5 +175,15 @@
 
   .status-right {
     gap: 6px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .pane:hover {
+    box-shadow: none !important;
+  }
+  .pane:hover .pane-heading span:nth-child(2) {
+    color: inherit !important;
+    text-shadow: none !important;
   }
 }

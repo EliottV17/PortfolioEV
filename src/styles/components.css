@@ -293,14 +293,18 @@ a.terminal-line:hover {
   border-bottom: none;
 }
 
-a.project-icon {
+.project-icon {
   width: 27px;
   height: 27px;
   display: grid;
   place-items: center;
   border: 1px solid currentColor;
-  text-decoration: none;
   font-size: 13px;
+  color: var(--red);
+}
+
+a.project-icon {
+  text-decoration: none;
   cursor: pointer;
   transition:
     transform 0.15s ease,
@@ -312,14 +316,6 @@ a.project-icon:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.project-icon {
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  border: 1px solid currentColor;
-  color: var(--red);
-}
 
 .project-icon.blue {
   color: var(--blue);
@@ -346,7 +342,7 @@ a.project-icon:hover {
   color: #a6a69c;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
+  white-space: nowrap;
   word-break: break-word;
 }
 
@@ -453,6 +449,9 @@ a.project-icon:hover {
 /* Status Bar */
 .status-bar {
   display: flex;
+  flex-shrink: 0;
+  bottom: 0;
+  z-index: 10;
   align-items: center;
   gap: 10px;
   height: 25px;
@@ -460,6 +459,7 @@ a.project-icon:hover {
   color: var(--color-muted);
   background: var(--color-card);
   font-size: 10px;
+  position: sticky;
 }
 
 .status-mode {
