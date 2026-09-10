@@ -140,6 +140,9 @@ const currentLang = lang === 'es' ? 'es' : 'en';
   window.addEventListener('scroll', updateScrollStatus, { passive: true });
   window.addEventListener('resize', updateScrollStatus, { passive: true });
 
-  // Inicialización
-  updateScrollStatus();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateScrollStatus);
+  } else {
+    updateScrollStatus();
+  }
 </script>
