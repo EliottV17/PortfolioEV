@@ -84,7 +84,7 @@ export const ui = {
     'exp.item3.role':
       'Simply Technologies MX · Desarrollador Frontend (Practicante)',
     'exp.item3.desc':
-      'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado.',
+      'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
     'projects.sentinel.detail':
       'Sistema de monitoreo asíncrono en tiempo real diseñado para rastrear la disponibilidad y rendimiento de servicios.',
@@ -92,7 +92,7 @@ export const ui = {
       'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar compañeros de entrenamiento cercanos.',
 
     'projects.viewRepo': 'Ver repositorio en GitHub de',
-    'skills.languages': 'Lenguajes y frameworks',
+    'skills.languages': 'Lenguajes y Frameworks',
     'skills.databases': 'Bases de datos',
     'skills.architecture': 'APIs y arquitectura',
     'skills.cloud': 'Cloud & DevOps',
@@ -103,7 +103,7 @@ export const ui = {
     'contact.network': 'Redes',
     'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
-    'contact.locationValue': ' Lima, Callao (UTC-5)',
+    'contact.locationValue': 'Lima, Callao (UTC-5)',
     'contact.statusLabel': 'Estado:',
     'contact.statusValue': 'Abierto a nuevos proyectos',
     'contact.cvEnTitle': 'Descargar CV en inglés',
