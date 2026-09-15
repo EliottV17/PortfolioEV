@@ -13,14 +13,14 @@ export const ui = {
     'nav.skills': 'skills',
     'nav.contact': 'contact',
     'about.eyebrow': "// hello, i'm",
-    'about.role': 'Backend Developer',
+    'about.role': 'Backend Software Engineer',
     'about.bio':
       'Focused on building reliable backend applications and efficient APIs. Experienced in developing robust server-side logic and microservices, combined with a solid foundation in React for frontend integration.',
     'about.location': '⌁ based in Peru',
     'about.status': '◷ open to new projects',
 
     'exp.item1.date': '2026 — now',
-    'exp.item1.role': 'Independent · Backend Developer',
+    'exp.item1.role': 'Independent · Backend Software Engineer',
     'exp.item1.desc':
       'Developing personal and freelance backend projects, focusing on API design, database management, and asynchronous tasks.',
 
@@ -37,7 +37,7 @@ export const ui = {
     'projects.sentinel.detail':
       'Real-time asynchronous monitoring system built to track service availability and performance.',
     'projects.gymBuddy.detail':
-      'Location-based backend platform using PostGIS to connect athletes and workout spaces nearby.',
+      'Location-based backend platform using PostGIS to connect athletes and gym partners nearby.',
 
     'projects.viewRepo': 'View repository on GitHub for',
     'skills.languages': 'Languages & Frameworks',
@@ -47,7 +47,7 @@ export const ui = {
     'skills.tagArchitecture': 'Architecture',
     'skills.designPattern': 'Design Patterns',
     'contact.copy':
-      "Do you have a project in mind or are you looking for a backend developer? Let's talk.",
+      "Do you have a project in mind or are you looking for a backend software engineer? Let's talk.",
     'contact.network': 'Network',
     'contact.sysInfo': 'System Info',
     'contact.locationLabel': 'Location:',
@@ -64,16 +64,16 @@ export const ui = {
     'nav.skills': 'habilidades',
     'nav.contact': 'contacto',
     'about.eyebrow': '// hola, soy',
-    'about.role': 'Desarrollador Backend',
+    'about.role': 'Ingeniero de Software Backend',
     'about.bio':
       'Enfocado en construir aplicaciones backend confiables y APIs eficientes. Experiencia en el desarrollo de lógica de servidor robusta y microservicios, combinada con una base sólida en React para la integración con el frontend.',
     'about.location': '⌁ ubicado en Perú',
     'about.status': '◷ abierto a nuevos proyectos',
 
     'exp.item1.date': '2026 — presente',
-    'exp.item1.role': 'Independiente · Desarrollador Backend',
+    'exp.item1.role': 'Independiente · Ingeniero de Software Backend',
     'exp.item1.desc':
-      'Desarrollo de proyectos independientes y backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas.',
+      'Desarrollo de proyectos personales y freelance de backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas.',
 
     'exp.item2.date': 'Abril 2026 — Agosto 2026',
     'exp.item2.role': 'Meevent PE · Desarrollador Backend (Colaborador)',
@@ -89,7 +89,7 @@ export const ui = {
     'projects.sentinel.detail':
       'Sistema de monitoreo asíncrono en tiempo real diseñado para rastrear la disponibilidad y rendimiento de servicios.',
     'projects.gymBuddy.detail':
-      'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar espacios de entrenamiento cercanos.',
+      'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar compañeros de entrenamiento cercanos.',
 
     'projects.viewRepo': 'Ver repositorio en GitHub de',
     'skills.languages': 'Lenguajes y frameworks',
@@ -99,7 +99,7 @@ export const ui = {
     'skills.tagArchitecture': 'Arquitectura',
     'skills.designPattern': 'Patrones de diseño',
     'contact.copy':
-      '¿Tienes un proyecto en mente o buscas un desarrollador backend? Hablemos.',
+      '¿Tienes un proyecto en mente o buscas un ingeniero de software backend? Hablemos.',
     'contact.network': 'Redes',
     'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
