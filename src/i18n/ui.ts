@@ -35,7 +35,7 @@ export const ui = {
       'Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management.',
 
     'projects.sentinel.detail':
-      'Real-time asynchronous monitoring system built to track service availability and performance.',
+      'Distributed uptime monitoring platform (FastAPI + Go) featuring state-machine alerting and concurrent polling benchmarked at 5,000 services.',
     'projects.gymBuddy.detail':
       'Location-based backend platform using PostGIS to connect athletes and gym partners nearby.',
 
@@ -87,7 +87,7 @@ export const ui = {
       'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
     'projects.sentinel.detail':
-      'Sistema de monitoreo asíncrono en tiempo real diseñado para rastrear la disponibilidad y rendimiento de servicios.',
+      'Plataforma distribuida de observabilidad y uptime (FastAPI + Go) con alertas por máquina de estados y sondeo concurrente validado a 5,000 servicios.',
     'projects.gymBuddy.detail':
       'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar compañeros de entrenamiento cercanos.',
 
