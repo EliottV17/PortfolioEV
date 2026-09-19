@@ -47,6 +47,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
+  font-size: 13px;
   color: var(--bright);
   text-transform: lowercase;
   letter-spacing: 0.03em;
@@ -88,4 +89,11 @@
   grid-column: 3;
   grid-row: 2;
   border-right: 0;
+  border-bottom: 0;
+}
+
+@media (min-width: 1341px) {
+  .pane-skills {
+    border-bottom: 0;
+  }
 }

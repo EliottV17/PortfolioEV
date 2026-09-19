@@ -15,7 +15,7 @@ export const ui = {
     'about.eyebrow': "// hello, i'm",
     'about.role': 'Backend Software Engineer',
     'about.bio':
-      'Focused on building reliable backend applications and efficient APIs. Experienced in developing robust server-side logic and microservices, combined with a solid foundation in React for frontend integration.',
+      'Backend engineer focused on building resilient systems. I specialize in developing concurrent execution engines in Go and structured APIs with NestJS, relying on PostgreSQL as the core source of truth, while keeping a solid React foundation for end-to-end integration.',
     'about.location': '⌁ based in Peru',
     'about.status': '◷ open to new projects',
 
@@ -29,22 +29,24 @@ export const ui = {
     'exp.item2.desc':
       'Optimized server-side logic and service architecture, reducing API response times by 30% and implementing automated tests to ensure system stability.',
 
-    'exp.item3.date': 'Jul 2025 — Dec 2025',
+    'exp.item3.date': 'July 2025 — December 2025',
     'exp.item3.role': 'Simply Technologies MX · Frontend Developer (Intern)',
     'exp.item3.desc':
       'Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management.',
 
     'projects.sentinel.detail':
-      'Distributed uptime monitoring platform (FastAPI + Go) featuring state-machine alerting and concurrent polling benchmarked at 5,000 services.',
+      'Distributed uptime monitoring platform (FastAPI + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.',
     'projects.gymBuddy.detail':
-      'Location-based backend platform using PostGIS to connect athletes and gym partners nearby.',
+      'Engineered a high-performance matching engine utilizing PostGIS to resolve and optimize complex geospatial queries for low-latency proximity searches.',
 
     'projects.viewRepo': 'View repository on GitHub for',
-    'skills.languages': 'Languages & Frameworks',
+    'skills.languages': 'Stack',
     'skills.databases': 'Databases',
     'skills.architecture': 'APIs & Architecture',
     'skills.cloud': 'Cloud & DevOps',
     'skills.tagArchitecture': 'Architecture',
+    'skills.microservices': 'Microservices',
+    'skills.tools': 'Tools',
     'skills.designPattern': 'Design Patterns',
     'contact.copy':
       "Do you have a project in mind or are you looking for a backend software engineer? Let's talk.",
@@ -66,7 +68,7 @@ export const ui = {
     'about.eyebrow': '// hola, soy',
     'about.role': 'Ingeniero de Software Backend',
     'about.bio':
-      'Enfocado en construir aplicaciones backend confiables y APIs eficientes. Experiencia en el desarrollo de lógica de servidor robusta y microservicios, combinada con una base sólida en React para la integración con el frontend.',
+      'Ingeniero backend enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, usando PostgreSQL como fuente de verdad, manteniendo una base sólida en React para integraciones end-to-end.',
     'about.location': '⌁ ubicado en Perú',
     'about.status': '◷ abierto a nuevos proyectos',
 
@@ -80,23 +82,25 @@ export const ui = {
     'exp.item2.desc':
       'Optimización de la lógica del servidor y arquitectura de servicios, reduciendo los tiempos de respuesta de la API en un 30% e implementando pruebas automatizadas para asegurar la estabilidad del sistema.',
 
-    'exp.item3.date': 'Jul 2025 — Dic 2025',
+    'exp.item3.date': 'Julio 2025 — Diciembre 2025',
     'exp.item3.role':
       'Simply Technologies MX · Desarrollador Frontend (Practicante)',
     'exp.item3.desc':
       'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
     'projects.sentinel.detail':
-      'Plataforma distribuida de observabilidad y uptime (FastAPI + Go) con alertas por máquina de estados y sondeo concurrente validado a 5,000 servicios.',
+      'Plataforma distribuida de observabilidad (FastAPI + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.',
     'projects.gymBuddy.detail':
-      'Plataforma backend basada en geolocalización que utiliza PostGIS para conectar atletas y emparejar compañeros de entrenamiento cercanos.',
+      'Motor de emparejamiento de alto rendimiento que utiliza PostGIS para resolver y optimizar consultas geoespaciales complejas en búsquedas por proximidad de baja latencia.',
 
     'projects.viewRepo': 'Ver repositorio en GitHub de',
-    'skills.languages': 'Lenguajes y Frameworks',
+    'skills.languages': 'Stack',
     'skills.databases': 'Bases de datos',
     'skills.architecture': 'APIs y arquitectura',
     'skills.cloud': 'Cloud & DevOps',
     'skills.tagArchitecture': 'Arquitectura',
+    'skills.microservices': 'Microservicios',
+    'skills.tools': 'Herramientas',
     'skills.designPattern': 'Patrones de diseño',
     'contact.copy':
       '¿Tienes un proyecto en mente o buscas un ingeniero de software backend? Hablemos.',
