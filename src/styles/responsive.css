@@ -266,6 +266,14 @@
     font-size: 9.5px;
   }
 
+  .status-encoding {
+    display: inline-flex;
+    align-items: center;
+    font-size: 9.5px;
+    margin-right: 8px;
+    gap: 4px;
+  }
+
   .status-lang {
     font-size: 9.5px;
     padding-left: 10px;

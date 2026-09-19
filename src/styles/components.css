@@ -520,6 +520,9 @@ a.project-icon:hover {
 }
 
 .status-encoding {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--blue);
   margin-right: 12px;
   font-size: 10.5px;
