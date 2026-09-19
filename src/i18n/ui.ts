@@ -35,7 +35,7 @@ export const ui = {
       'Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management.',
 
     'projects.sentinel.detail':
-      'Distributed uptime monitoring platform (FastAPI + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.',
+      'Distributed uptime monitoring platform (NestJS + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.',
     'projects.gymBuddy.detail':
       'Engineered a high-performance matching engine utilizing PostGIS to resolve and optimize complex geospatial queries for low-latency proximity searches.',
 
@@ -89,7 +89,7 @@ export const ui = {
       'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
     'projects.sentinel.detail':
-      'Plataforma distribuida de observabilidad (FastAPI + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.',
+      'Plataforma distribuida de observabilidad (NestJS + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.',
     'projects.gymBuddy.detail':
       'Motor de emparejamiento de alto rendimiento que utiliza PostGIS para resolver y optimizar consultas geoespaciales complejas en búsquedas por proximidad de baja latencia.',
 

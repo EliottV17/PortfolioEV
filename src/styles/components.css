@@ -324,23 +324,27 @@ a.project-icon:hover {
 .skill-categories {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.75rem;
+  align-content: start;
+  column-gap: 1.75rem;
+  row-gap: 1.5rem;
   padding: 20px 24px;
   height: calc(100% - 36px);
   overflow-y: auto;
 }
 
 .skill-category {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 1.25rem;
+  align-items: start;
   padding: 0 16px;
   min-width: 0;
   width: 100%;
 }
 
 .category-label {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   color: var(--red);
   font-size: 13px;
   font-weight: 700;
@@ -355,7 +359,7 @@ a.project-icon:hover {
 }
 
 .skill-block:not(:last-child) {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .skill-group-title {
@@ -486,8 +490,12 @@ a.project-icon:hover {
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1;
+}
+
+.branch-icon svg {
+  display: block;
 }
 
 .branch-name {
