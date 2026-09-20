@@ -1,0 +1,13 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="608 0 832 2048"
+  width="0.41em"
+  height="1em"
+  fill="currentColor"
+  aria-hidden="true"
+  >
+    <path
+      transform="matrix(1 0 0 -1 0 1638)"
+      d="M852 -410h-244v427q0 161 68 259q51 72 150 135l136 88q76 51 112 123q34 67 34 185v291h-184l258 302l258 -302h-184v-341q0 -168 -48 -261q-47 -90 -142 -152l-66 -45q-85 -56 -112 -109q-36 -63 -36 -173v-427zM852 638l-244 -158v1158h244v-1000z"
+    ></path>
+</svg>
