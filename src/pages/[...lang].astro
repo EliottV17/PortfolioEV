@@ -3,6 +3,7 @@ import '../styles/global.css';
 import BranchIcon from '../../public/branch.svg';
 import GoIcon from '../../public/go.svg';
 import TsIcon from '../../public/typescript.svg';
+import AstroIcon from '../../public/astro.svg';
 import About from '../components/About.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
@@ -61,9 +62,13 @@ const currentLang = lang === 'es' ? 'es' : 'en';
             </span>
             <span class="branch-name">main</span>
           </span>
+          <span class="status-buffer status-hide-mobile">
+            <AstroIcon />
+            index.astro
+          </span>
 
           <span class="status-right">
-            <span class="status-encoding">
+            <span class="status-encoding status-hide-mobile">
               <GoIcon />
               <span class="status-separator">|</span>
               <TsIcon />

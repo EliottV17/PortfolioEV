@@ -13,6 +13,7 @@ const projects = [
     id: 'sentinel',
     name: 'Sentinel',
     url: 'https://github.com/EliottV17/sentinel-project',
+    videoUrl: 'https://youtu.be/0To4e1rmMRM',
     detail: t('projects.sentinel.detail'),
     stack:
       'TypeScript · Go ·  NestJS · Postgres · PrismaORM · JWT · CI/CD · Jest',
@@ -38,22 +39,34 @@ const projects = [
   <div class="project-list">
     {
       projects.map((project, index) => (
-        <div class="project-row">
-          <a
-            class={`project-icon ${project.color}`}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`${t('projects.viewRepo')} ${project.name}`}
-          >
-            ↗
-          </a>
-          <div class="project-copy">
-            <strong>{project.name}</strong>
+        <div class={`project-row ${project.color}`}>
+          <div class={`project-copy ${project.color}`}>
+            <div class="project-title-row">
+              <strong>{project.name}</strong>
+              {project.videoUrl && (
+                <a
+                  class="project-tag-link"
+                  href={project.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.name} demo video`}
+                >
+                  [▶ Video]
+                </a>
+              )}
+              <a
+                class="project-tag-link"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                [ GitHub ↗ ]
+              </a>
+            </div>
             <span class="project-detail">{project.detail}</span>
             <small>{project.stack}</small>
           </div>
-          <span class="project-index">0{index + 1}</span>
+          <span class={`project-index ${project.color}`}>0{index + 1}</span>
         </div>
       ))
     }

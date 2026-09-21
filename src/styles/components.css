@@ -252,7 +252,7 @@ a.terminal-line:hover {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 9px 18px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--color-card);
 }
 
@@ -260,45 +260,53 @@ a.terminal-line:hover {
   border-bottom: none;
 }
 
-.project-icon {
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  border: 1px solid currentColor;
-  font-size: 13px;
-  color: var(--red);
-}
-
-a.project-icon {
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
-}
-
-a.project-icon:hover {
-  transform: translateY(-1px);
-  background: var(--hover-overlay);
-}
-
-.project-icon.blue {
-  color: var(--blue);
-}
-
 .project-copy {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 3px;
   min-width: 0;
+  padding-left: 1rem;
+  border-left: 2px solid transparent;
+}
+
+.project-copy.red,
+.project-row.red .project-copy {
+  border-left-color: var(--red);
+}
+
+.project-copy.blue,
+.project-row.blue .project-copy {
+  border-left-color: var(--blue);
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .project-copy strong {
   color: var(--bright);
   font-size: 14px;
   font-weight: 600;
+}
+
+.project-tag-link {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  transition:
+    color 0.15s ease,
+    text-shadow 0.15s ease;
+}
+
+.project-tag-link:hover {
+  color: var(--bright);
+  text-shadow: 0 0 8px rgba(220, 215, 186, 0.3);
 }
 
 .project-detail {
@@ -310,14 +318,25 @@ a.project-icon:hover {
 }
 
 .project-copy small {
-  margin: 0;
-  color: var(--color-foreground);
-  opacity: 0.7;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.4;
 }
 
 .project-index {
   margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
   color: var(--color-muted);
+}
+
+.project-index.red {
+  color: var(--red);
+}
+
+.project-index.blue {
+  color: var(--blue);
 }
 
 /* Skills Section */
@@ -501,6 +520,26 @@ a.project-icon:hover {
 .branch-name {
   font-size: 10.5px;
   font-weight: 700;
+}
+
+.status-buffer {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.status-buffer svg {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  fill: currentColor;
+  color: var(--color-bright, var(--bright));
 }
 
 .status-mode {

@@ -159,7 +159,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .terminal-shell,
   .terminal-window {
     display: block;
@@ -235,7 +235,7 @@
   }
 
   .status-hide-mobile {
-    display: none;
+    display: none !important;
   }
 
   .status-bar {
@@ -264,14 +264,6 @@
 
   .branch-name {
     font-size: 9.5px;
-  }
-
-  .status-encoding {
-    display: inline-flex;
-    align-items: center;
-    font-size: 9.5px;
-    margin-right: 8px;
-    gap: 4px;
   }
 
   .status-lang {
