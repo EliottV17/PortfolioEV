@@ -27,4 +27,5 @@
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-bright: var(--bright);
 }
