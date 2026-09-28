@@ -81,7 +81,7 @@
 .sys-info span {
   color: var(--blue);
   display: inline-block;
-  width: 65px;
+  min-width: 80px;
 }
 
 .cli-box {

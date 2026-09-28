@@ -13,14 +13,14 @@ export const ui = {
     'nav.skills': 'skills',
     'nav.contact': 'contact',
     'about.eyebrow': "// hello, i'm",
-    'about.role': 'Backend Software Engineer',
+    'about.role': 'Software Developer',
     'about.bio':
-      'Backend engineer focused on building resilient systems. I specialize in developing concurrent execution engines in Go and structured APIs with NestJS, relying on PostgreSQL as the core source of truth, while keeping a solid React foundation for end-to-end integration.',
+      'Software Developer focused on building resilient systems. I specialize in developing concurrent execution engines in Go and structured APIs with NestJS, optimizing data modeling and persistence in PostgreSQL, while keeping a solid React foundation for end-to-end integration.',
     'about.location': '⌁ based in Peru',
     'about.status': '◷ open to new projects',
 
     'exp.item1.date': '2026 — now',
-    'exp.item1.role': 'Independent · Backend Software Engineer',
+    'exp.item1.role': 'Independent · Software Developer',
     'exp.item1.desc':
       'Developing personal and freelance backend projects, focusing on API design, database management, and asynchronous tasks.',
 
@@ -49,11 +49,11 @@ export const ui = {
     'skills.tools': 'Tools',
     'skills.designPattern': 'Design Patterns',
     'contact.copy':
-      "Do you have a project in mind or are you looking for a backend software engineer? Let's talk.",
+      "Do you have a project in mind or are you looking for a software developer? Let's talk.",
     'contact.network': 'Network',
     'contact.sysInfo': 'System Info',
     'contact.locationLabel': 'Location:',
-    'contact.locationValue': 'Lima, Callao (UTC-5)',
+    'contact.locationValue': 'Lima, Peru (UTC-5)',
     'contact.statusLabel': 'Status:',
     'contact.statusValue': 'Open to new projects',
     'contact.cvEnTitle': 'Download English Resume',
@@ -66,14 +66,14 @@ export const ui = {
     'nav.skills': 'habilidades',
     'nav.contact': 'contacto',
     'about.eyebrow': '// hola, soy',
-    'about.role': 'Ingeniero de Software Backend',
+    'about.role': 'Software Developer',
     'about.bio':
-      'Ingeniero backend enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, usando PostgreSQL como fuente de verdad, manteniendo una base sólida en React para integraciones end-to-end.',
+      'Software Developer enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, optimizando la persistencia y el modelado de datos en PostgreSQL, manteniendo una base sólida en React para integraciones end-to-end.',
     'about.location': '⌁ ubicado en Perú',
     'about.status': '◷ abierto a nuevos proyectos',
 
     'exp.item1.date': '2026 — presente',
-    'exp.item1.role': 'Independiente · Ingeniero de Software Backend',
+    'exp.item1.role': 'Independiente · Software Developer',
     'exp.item1.desc':
       'Desarrollo de proyectos personales y freelance de backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas.',
 
@@ -103,11 +103,11 @@ export const ui = {
     'skills.tools': 'Herramientas',
     'skills.designPattern': 'Patrones de diseño',
     'contact.copy':
-      '¿Tienes un proyecto en mente o buscas un ingeniero de software backend? Hablemos.',
+      '¿Tienes un proyecto en mente o buscas un software developer? Hablemos.',
     'contact.network': 'Redes',
     'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
-    'contact.locationValue': 'Lima, Callao (UTC-5)',
+    'contact.locationValue': 'Lima, Perú (UTC-5)',
     'contact.statusLabel': 'Estado:',
     'contact.statusValue': 'Abierto a nuevos proyectos',
     'contact.cvEnTitle': 'Descargar CV en inglés',
