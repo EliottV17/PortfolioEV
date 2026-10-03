@@ -1,0 +1,461 @@
+/* Telescope Neovim Minimalist Modal Styles */
+
+:root {
+  --telescope-stacked-breakpoint: 1024px;
+  --telescope-modal-width: min(1400px, 90vw);
+  --telescope-modal-height: min(760px, 96dvh);
+}
+
+/* Modal Overlay: fondo tenue rgba(9, 8, 8, 0.6) y sin blur */
+.telescope-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50000; /* Supera la barra inferior status-bar (10002) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(9, 8, 8, 0.6);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+.telescope-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.telescope-modal-box {
+  width: var(--telescope-modal-width);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  z-index: 50001;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-top: 10px;
+  margin: auto;
+}
+
+/* Mobile close button: oculto en escritorio, visible en layout apilado */
+.telescope-mobile-close {
+  display: none;
+}
+
+/* Two-panel Grid */
+.telescope-workspace {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 12px;
+  height: var(--telescope-modal-height);
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Panel base with floating border title */
+.telescope-panel {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--surface-terminal);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.telescope-panel-picker,
+.telescope-panel-preview {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.telescope-panel-title {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background: var(--surface-terminal);
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Left Panel: Picker */
+.telescope-search-row {
+  height: 38px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.telescope-prompt-indicator {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.telescope-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--bright);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  min-width: 0;
+}
+
+.telescope-input::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.telescope-count {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding-left: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Projects Picker List */
+.telescope-items-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.telescope-row-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--foreground);
+  transition:
+    background-color 0.1s ease,
+    color 0.1s ease;
+  user-select: none;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.telescope-row-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--bright);
+}
+
+.telescope-row-item.is-selected {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--bright);
+}
+
+.tech-icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.tech-icon-slot.ts {
+  color: var(--accent);
+}
+
+.tech-icon-slot.go {
+  color: var(--blue);
+}
+
+.tech-icon-slot svg {
+  width: 100%;
+  height: 100%;
+}
+
+.item-project-title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Panel: Preview */
+.preview-content-body {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.preview-header-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.preview-proj-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bright);
+  margin: 0;
+  font-family: var(--font-mono);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.preview-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  flex-shrink: 0;
+}
+
+.preview-text-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+
+.preview-text-link:hover {
+  color: var(--bright);
+}
+
+.preview-text-link.is-hidden,
+.preview-diagram.is-hidden,
+.preview-highlights-list.is-hidden {
+  display: none;
+}
+
+.preview-detail-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.preview-diagram {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 8px 10px;
+  margin: 2px 0 0;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  white-space: pre;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.preview-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.preview-highlight-item {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.preview-highlight-item > span:last-child {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.preview-highlight-bullet {
+  color: var(--muted);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.preview-stack-line {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* ==========================================================================
+   Stacked Layout (lista arriba, preview abajo): max-width: 1024px
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .telescope-overlay {
+    padding: max(12px, env(safe-area-inset-top, 0px))
+      max(12px, env(safe-area-inset-right, 0px))
+      max(12px, env(safe-area-inset-bottom, 0px))
+      max(12px, env(safe-area-inset-left, 0px));
+  }
+
+  /* Botón ✕ dentro del recuadro, esquina superior derecha */
+  .telescope-mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 20;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    border-top-right-radius: 4px;
+    transition:
+      color 0.12s ease,
+      background-color 0.12s ease;
+  }
+
+  .telescope-mobile-close:hover,
+  .telescope-mobile-close:active {
+    color: var(--bright);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Dejar 44px a la derecha para que el botón de cierre no tape el contador */
+  .telescope-search-row {
+    padding-right: 44px;
+  }
+
+  .telescope-workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(320px, 1fr);
+    gap: 16px;
+    height: var(--telescope-modal-height);
+  }
+
+  .telescope-panel-picker {
+    flex-shrink: 0;
+    min-height: 0;
+  }
+
+  /* La lista se ajusta al contenido (4 proyectos de 40px + 8px padding = 168px sin scroll) */
+  .telescope-items-list {
+    flex: initial;
+    height: auto;
+    max-height: calc(4 * 40px + 8px);
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+
+  /* Zonas táctiles de al menos 40px de alto en las filas */
+  .telescope-row-item {
+    height: 40px;
+    min-height: 40px;
+    padding: 0 12px;
+  }
+
+  .telescope-panel-preview {
+    min-height: 320px;
+  }
+
+  .preview-content-body {
+    padding: 14px 14px 12px;
+    gap: 10px;
+  }
+
+  .preview-diagram {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 8px 10px;
+    max-width: 100%;
+  }
+
+  .preview-text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 4px 8px;
+  }
+}

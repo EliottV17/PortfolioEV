@@ -37,8 +37,8 @@
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   transition:
-    box-shadow 0.2s ease-in-out,
-    background-color 0.2s ease-in-out;
+    box-shadow 120ms ease,
+    background-color 120ms ease;
 }
 
 .pane-heading {
@@ -52,7 +52,7 @@
   text-transform: lowercase;
   letter-spacing: 0.03em;
   border-bottom: 1px solid var(--color-border);
-  transition: color 0.15s ease;
+  transition: color 120ms ease;
 }
 
 .pane-number,
