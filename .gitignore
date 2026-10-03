@@ -25,5 +25,3 @@ pnpm-debug.log*
 # Local Pi runtime state
 .atl/
 .codegraph/
-odd/
-.gga
