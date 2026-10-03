@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import BranchIcon from '../../public/branch.svg';
+import GoIcon from '../../public/go.svg';
+import TsIcon from '../../public/typescript.svg';
+import AstroIcon from '../../public/astro.svg';
 import About from '../components/About.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
@@ -28,15 +32,15 @@ const currentLang = lang === 'es' ? 'es' : 'en';
     <title>
       {
         currentLang === 'es'
-          ? 'Eliott Velarde — Desarrollador Backend'
-          : 'Eliott Velarde — Backend Developer'
+          ? 'Eliott Velarde — Software Developer'
+          : 'Eliott Velarde — Software Developer'
       }
     </title>
     <meta
       name="description"
       content={currentLang === 'es'
-        ? 'Portafolio de Eliott Velarde. Ingeniero de software Backend enfocado en APIs, sistemas backend, diseño de sistemas y arquitectura de software'
-        : "Eliott Velarde's Portfolio. Backend Software Engineer focused on APIs, backend systems, system design, and software architecture."}
+        ? 'Portafolio de Eliott Velarde. Software Developer enfocado en APIs, sistemas backend, diseño de sistemas y arquitectura de software'
+        : "Eliott Velarde's Portfolio. Software Developer focused on APIs, backend systems, system design, and software architecture."}
     />
     <meta name="generator" content={Astro.generator} />
   </head>
@@ -51,96 +55,52 @@ const currentLang = lang === 'es' ? 'es' : 'en';
           <Contact lang={currentLang} />
         </div>
         <footer class="status-bar">
-          <span class="status-mode">●</span><span>main</span>
-          <span class="status-separator status-hide-mobile">│</span>
-          <span class="status-hide-mobile">portfolio.astro</span>
+          <span class="status-normal">NORMAL</span>
+          <span class="status-branch">
+            <span class="branch-icon" aria-hidden="true">
+              <BranchIcon />
+            </span>
+            <span class="branch-name">main</span>
+          </span>
+          <span class="status-buffer status-hide-mobile">
+            <AstroIcon />
+            index.astro
+          </span>
 
           <span class="status-right">
-            <span
-              class="lang-switch"
-              role="navigation"
-              aria-label="Language selector"
-            >
-              <a
-                href="/"
-                class:list={['lang-link', { active: currentLang === 'en' }]}
-                aria-current={currentLang === 'en' ? 'page' : undefined}>en</a
-              ><span class="lang-sep">/</span><a
-                href="/es/"
-                class:list={['lang-link', { active: currentLang === 'es' }]}
-                aria-current={currentLang === 'es' ? 'page' : undefined}>es</a
-              >
+            <span class="status-encoding status-hide-mobile">
+              <GoIcon />
+              <span class="status-separator">|</span>
+              <TsIcon />
             </span>
 
-            <span class="status-separator status-hide-mobile">│</span>
-            <span class="status-hide-mobile">utf-8</span>
+            <span class="status-lang">
+              <span
+                class="lang-switch"
+                role="navigation"
+                aria-label="Language selector"
+              >
+                <a
+                  href="/"
+                  class:list={['lang-link', { active: currentLang === 'en' }]}
+                  aria-current={currentLang === 'en' ? 'page' : undefined}>en</a
+                ><span class="lang-sep">/</span><a
+                  href="/es/"
+                  class:list={['lang-link', { active: currentLang === 'es' }]}
+                  aria-current={currentLang === 'es' ? 'page' : undefined}>es</a
+                >
+              </span>
+            </span>
 
-            <span id="nvim-percent">0%</span>
-            <b id="nvim-cursor" class="status-hide-mobile">Ln 1, Col 01</b>
+            <span class="status-location">
+              <span id="nvim-percent">0% </span>
+              <span id="nvim-cursor">0:0</span>
+            </span>
           </span>
         </footer>
       </div>
     </main>
   </body>
 </html>
-<script is:inline>
-  const cursorEl = document.getElementById('nvim-cursor');
-  const percentEl = document.getElementById('nvim-percent');
 
-  const updateScrollStatus = () => {
-    if (!cursorEl || !percentEl) return;
-
-    const scrollTop = window.scrollY;
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    const totalLines = Math.max(
-      10,
-      Math.floor(document.documentElement.scrollHeight / 24),
-    );
-
-    let scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
-
-    const currentLine = Math.max(
-      1,
-      Math.min(totalLines, Math.round(scrollPercent * totalLines)),
-    );
-
-    const col = cursorEl.getAttribute('data-col') || '01';
-
-    cursorEl.textContent = `Ln ${currentLine}, Col ${col}`;
-
-    if (scrollTop === 0) {
-      percentEl.textContent = 'Top';
-    } else if (
-      Math.ceil(scrollTop + window.innerHeight) >=
-      document.documentElement.scrollHeight
-    ) {
-      percentEl.textContent = 'Bot';
-    } else {
-      percentEl.textContent = `${Math.round(scrollPercent * 100)}%`;
-    }
-  };
-
-  window.addEventListener('mousemove', (e) => {
-    if (!cursorEl) return;
-    const col = Math.max(
-      1,
-      Math.min(Math.round((e.clientX / window.innerWidth) * 80), 80),
-    );
-    const colFormatted = col.toString().padStart(2, '0');
-    cursorEl.setAttribute('data-col', colFormatted);
-
-    const lineText = cursorEl.textContent?.split(',')[0] || 'Ln 1';
-    cursorEl.textContent = `${lineText}, Col ${colFormatted}`;
-  });
-
-  window.addEventListener('scroll', updateScrollStatus, { passive: true });
-  window.addEventListener('resize', updateScrollStatus, { passive: true });
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateScrollStatus);
-  } else {
-    updateScrollStatus();
-  }
-</script>
+<script src="../scripts/status-bar.ts"></script>
