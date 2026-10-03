@@ -1,0 +1,82 @@
+.terminal-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 0%, #181616 0%, #090808 66%);
+}
+
+.terminal-window {
+  width: 100%;
+  height: 100vh;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #0d0c0c;
+  box-shadow:
+    0 24px 80px #0008,
+    0 0 0 1px #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.workspace {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 1fr 0.92fr;
+}
+
+.pane {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pane-heading {
+  height: 36px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--bright);
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pane-number,
+.pane-mark {
+  color: var(--color-muted);
+}
+
+.pane-mark {
+  margin-left: auto;
+}
+
+/* Posicionamiento en el Grid */
+.pane-about {
+  grid-column: 1;
+  grid-row: 1;
+}
+.pane-experience {
+  grid-column: 2;
+  grid-row: 1;
+}
+.pane-projects {
+  grid-column: 3;
+  grid-row: 1;
+}
+.pane-skills {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+.pane-contact {
+  grid-column: 3;
+  grid-row: 2;
+  border-right: 0;
+}

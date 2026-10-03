@@ -1,0 +1,49 @@
+---
+const projects = [
+  {
+    name: 'Sentinel',
+    url: 'https://github.com/EliottV17/sentinel-project',
+    type: 'product',
+    detail: 'Real-time asynchronous monitoring system for high-availability tracking.',
+    stack: 'Python · Go ·  FastAPI · Postgres · JWT · CI/CD',
+    color: 'red',
+  },
+  {
+    name: 'Gym Buddy',
+    url: 'https://github.com/EliottV17/gym-buddy-api',
+    type: 'project',
+    detail: 'Geolocation-based backend platform connecting athletes and matching workout spaces.',
+    stack: 'TypeScript · NestJS · Postgres · PostGIS · JWT ',
+    color: 'blue',
+  },
+];
+---
+
+<section class="pane pane-projects" aria-labelledby="projects-title">
+  <div class="pane-heading">
+    <span class="pane-number">03</span><span id="projects-title">projects</span
+    ><span class="pane-mark">▾</span>
+  </div>
+  <div class="project-list">
+    {
+      projects.map((project, index) => (
+        <a
+          class="project-row"
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class={`project-icon ${project.color}`}>↗</span>
+          <span class="project-copy">
+            <>
+              <strong>{project.name}</strong>
+              <span>{project.detail}</span>
+              <small>{project.stack}</small>
+            </>
+          </span>
+          <span class="project-index">0{index + 1}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>

@@ -1,17 +1,47 @@
 ---
-
+import '../styles/global.css';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="en" class="dark bg-[#090808]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#090808" />
+    <meta name="color-scheme" content="dark" />
+    <title>Eliott Velarde — Backend engineer</title>
+    <meta
+      name="description"
+      content="The portfolio of Alex Rivera, a product designer and frontend engineer."
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="antialiased">
+    <main class="terminal-shell">
+      <div class="terminal-window">
+        <div class="workspace">
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </div>
+        <footer class="status-bar">
+          <span class="status-mode">●</span><span>main</span>
+          <span class="status-separator">│</span>
+          <span>portfolio.astro</span>
+          <span class="status-right"
+            >utf-8 <span>astro</span> 100% <b>Ln 42, Col 18</b></span
+          >
+        </footer>
+      </div>
+    </main>
+  </body>
 </html>
