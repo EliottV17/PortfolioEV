@@ -21,24 +21,22 @@ const currentLang = lang === 'es' ? 'es' : 'en';
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23c4746e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M10 6l10 10-10 10'/></svg>"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <meta name="theme-color" content="#090808" />
     <meta name="color-scheme" content="dark" />
     <title>
       {
         currentLang === 'es'
-          ? 'Eliott Velarde — Ingeniero Backend'
-          : 'Eliott Velarde — Backend Engineer'
+          ? 'Eliott Velarde — Desarrollador Backend'
+          : 'Eliott Velarde — Backend Developer'
       }
     </title>
     <meta
       name="description"
       content={currentLang === 'es'
-        ? 'Portafolio de Eliott Velarde. Ingeniero Backend especializado en desarrollo de APIs, microservicios y arquitecturas escalables.'
-        : 'Portfolio of Eliott Velarde. Backend Engineer specialized in API development, microservices, and scalable architectures.'}
+        ? 'Portafolio de Eliott Velarde. Ingeniero de software Backend enfocado en APIs, sistemas backend, diseño de sistemas y arquitectura de software'
+        : "Eliott Velarde's Portfolio. Backend Software Engineer focused on APIs, backend systems, system design, and software architecture."}
     />
     <meta name="generator" content={Astro.generator} />
   </head>
@@ -140,6 +138,9 @@ const currentLang = lang === 'es' ? 'es' : 'en';
   window.addEventListener('scroll', updateScrollStatus, { passive: true });
   window.addEventListener('resize', updateScrollStatus, { passive: true });
 
-  // Inicialización
-  updateScrollStatus();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateScrollStatus);
+  } else {
+    updateScrollStatus();
+  }
 </script>
