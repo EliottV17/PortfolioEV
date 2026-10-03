@@ -1,11 +1,26 @@
+---
+import { useTranslations, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <section class="pane pane-about" aria-labelledby="about-title">
   <div class="pane-heading">
-    <span class="pane-number">01</span><span id="about-title">about me</span
-    ><span class="pane-mark">▾</span>
+    <span class="pane-number">01</span>
+    <span id="about-title">{t('nav.about')}</span><span class="pane-mark"
+      >▾</span
+    >
   </div>
   <div class="about-content">
     <pre
-      class="ascii-avatar">
+      class="ascii-avatar"
+      role="img"
+      aria-label="ASCII art portrait of Eliott Velarde">
           _____                    _____          
          /\    \                  /\    \         
         /::\    \                /::\____\        
@@ -30,18 +45,17 @@
                                                   
               </pre>
     <div>
-      <p class="eyebrow">// hello, i'm</p>
+      <p class="eyebrow">{t('about.eyebrow')}</p>
       <h1>Eliott<br /><em>Velarde</em></h1>
       <p class="role">
-        Backend engineer &amp; frontend engineer<span class="cursor"></span>
+        {t('about.role')}<span class="cursor"></span>
       </p>
       <p class="bio">
-        I turn complex logic into scalable systems and clean interfaces.
-        Currently building robust backend architectures and efficient web
-        applications.
+        {t('about.bio')}
       </p>
       <div class="about-meta">
-        <span>⌁ based in Perú</span><span>◷ available for select work</span>
+        <span>{t('about.location')}</span>
+        <span>{t('about.status')}</span>
       </div>
     </div>
   </div>

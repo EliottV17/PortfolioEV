@@ -1,41 +1,45 @@
+---
+import { useTranslations, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: 'en' | 'es';
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <section class="pane pane-experience" aria-labelledby="experience-title">
   <div class="pane-heading">
     <span class="pane-number">02</span>
-    <span id="experience-title">experience</span>
+    <span id="experience-title">{t('nav.experience')}</span>
     <span class="pane-mark">▾</span>
   </div>
   <div class="timeline">
     <article class="timeline-item current">
       <span class="timeline-dot"></span>
       <div>
-        <p class="date">2026 — now</p>
-        <h2>Independent · Backend developer</h2>
-        <p>
-          Designing and building scalable backend architectures and
-          high-performance microservices.
-        </p>
+        <p class="date">{t('exp.item1.date')}</p>
+        <h2>{t('exp.item1.role')}</h2>
+        <p>{t('exp.item1.desc')}</p>
       </div>
     </article>
+
     <article class="timeline-item">
       <span class="timeline-dot"></span>
       <div>
-        <p class="date">April 2026 — August 2026</p>
-        <h2>Meevent PE · Backend developer</h2>
-        <p>
-          Developing server-side logic with Java and Spring Boot, ensuring code
-          reliability through rigorous testing.
-        </p>
+        <p class="date">{t('exp.item2.date')}</p>
+        <h2>{t('exp.item2.role')}</h2>
+        <p>{t('exp.item2.desc')}</p>
       </div>
     </article>
+
     <article class="timeline-item">
       <span class="timeline-dot"></span>
       <div>
-        <p class="date">Jul 2025 — Dec 2025</p>
-        <h2>Simply Technologies MX · Frontend developer</h2>
-        <p>
-          Building responsive web interfaces and maintaining modular UI
-          components using TypeScript and React.
-        </p>
+        <p class="date">{t('exp.item3.date')}</p>
+        <h2>{t('exp.item3.role')}</h2>
+        <p>{t('exp.item3.desc')}</p>
       </div>
     </article>
   </div>
