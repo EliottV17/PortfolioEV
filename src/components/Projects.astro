@@ -1,5 +1,7 @@
 ---
 import { useTranslations, defaultLang } from '../i18n/ui';
+import TsIcon from '../assets/icons/typescript.svg';
+import GoIcon from '../assets/icons/go.svg';
 
 interface Props {
   lang?: 'en' | 'es';
@@ -16,8 +18,13 @@ const projects = [
     videoUrl: 'https://youtu.be/0To4e1rmMRM',
     detail: t('projects.sentinel.detail'),
     stack:
-      'TypeScript · Go ·  NestJS · Postgres · PrismaORM · JWT · CI/CD · Jest',
+      'TypeScript · Go · NestJS · Postgres · PrismaORM · JWT · CI/CD · Jest',
     color: 'red',
+    techIcon: 'go',
+    highlights: [
+      t('projects.sentinel.highlight1'),
+      t('projects.sentinel.highlight2'),
+    ],
   },
   {
     id: 'gymBuddy',
@@ -26,8 +33,67 @@ const projects = [
     detail: t('projects.gymBuddy.detail'),
     stack: 'TypeScript · NestJS · Postgres · TypeORM · PostGIS · JWT',
     color: 'blue',
+    techIcon: 'ts',
+    diagram: ` client    React 19 · Vite · TanStack Query · chat polling every 5s
+   │
+   ▼  Nginx   /api ─▶ :3000
+ api       NestJS · /api/v1 · ValidationPipe · JWT AuthGuard
+   │         modules    auth · users · swipes · matches · messages
+   │         matching   swipe LIKE ─▶ reciprocal? ─▶ match ─▶ chat
+   │         discovery  suggestions ordered by ST_Distance
+   ▼  TypeORM
+ db        PostgreSQL 15 + PostGIS · geography(Point, 4326)
+             users · swipes · matches · messages`,
+    highlights: [
+      t('projects.gymBuddy.highlight1'),
+      t('projects.gymBuddy.highlight2'),
+    ],
+  },
+  {
+    id: 'tenantInbox',
+    name: 'TenantInbox',
+    url: 'https://github.com/EliottV17/TenantInbox',
+    filename: 'tenantinbox.ts',
+    detail: t('projects.tenantInbox.detail'),
+    stack:
+      'Next.js (App Router) · TypeScript · Convex · OpenRouter (GLM-5.3-flash) · Zod 4 · Tailwind CSS v4 · shadcn/ui · Bun · Vitest',
+    color: 'green',
+    techIcon: 'ts',
+    highlights: [
+      t('projects.tenantInbox.highlight1'),
+      t('projects.tenantInbox.highlight2'),
+      t('projects.tenantInbox.highlight3'),
+    ],
   },
 ];
+
+const VISIBLE_PROJECTS = 3;
+const visibleProjects = projects.slice(0, VISIBLE_PROJECTS);
+const hiddenCount = Math.max(0, projects.length - VISIBLE_PROJECTS);
+const firstHiddenProject = hiddenCount > 0 ? projects[VISIBLE_PROJECTS] : null;
+
+const moreText =
+  hiddenCount === 1
+    ? t('projects.more.singular')
+    : t('projects.more.plural').replace('{count}', String(hiddenCount));
+
+const moreAriaLabel = firstHiddenProject
+  ? t('projects.more.aria').replace('{name}', firstHiddenProject.name)
+  : '';
+
+const toSlug = (str: string) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const projectsDataJson = JSON.stringify(
+  projects.map((p, index) => ({
+    ...p,
+    index: `0${index + 1}`,
+    filename: p.filename || `${toSlug(p.name)}.${p.techIcon || 'ts'}`,
+  })),
+);
 ---
 
 <section class="pane pane-projects" aria-labelledby="projects-title">
@@ -36,10 +102,18 @@ const projects = [
     <span id="projects-title">{t('nav.projects')}</span>
     <span class="pane-mark">▾</span>
   </div>
+
   <div class="project-list">
     {
-      projects.map((project, index) => (
-        <div class={`project-row ${project.color}`}>
+      visibleProjects.map((project, index) => (
+        <div
+          class={`project-row ${project.color}`}
+          data-open-telescope
+          data-project-id={project.id}
+          tabindex="0"
+          aria-haspopup="dialog"
+          aria-label={t('projects.row.aria').replace('{name}', project.name)}
+        >
           <div class={`project-copy ${project.color}`}>
             <div class="project-title-row">
               <strong>{project.name}</strong>
@@ -49,9 +123,12 @@ const projects = [
                   href={project.videoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${project.name} demo video`}
+                  aria-label={t('projects.video.aria').replace(
+                    '{name}',
+                    project.name,
+                  )}
                 >
-                  [▶ Video]
+                  {t('projects.video.link')}
                 </a>
               )}
               <a
@@ -60,7 +137,7 @@ const projects = [
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                [ GitHub ↗ ]
+                {t('projects.github.link')}
               </a>
             </div>
             <span class="project-detail">{project.detail}</span>
@@ -71,4 +148,183 @@ const projects = [
       ))
     }
   </div>
+
+  {
+    hiddenCount > 0 && (
+      <footer class="projects-footer">
+        <button
+          type="button"
+          class="projects-more-btn"
+          data-open-telescope
+          data-project-id={firstHiddenProject?.id}
+          aria-haspopup="dialog"
+          aria-controls="telescope-modal"
+          aria-label={moreAriaLabel}
+        >
+          {moreText}
+        </button>
+      </footer>
+    )
+  }
 </section>
+
+<!-- Neovim Telescope Floating Window Overlay -->
+<div
+  id="telescope-modal"
+  class="telescope-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label={t('telescope.modal.aria')}
+  hidden
+>
+  <div class="telescope-modal-box">
+    <!-- Close button for mobile touch screens -->
+    <button
+      type="button"
+      id="telescope-mobile-close"
+      class="telescope-mobile-close"
+      aria-label={t('telescope.close.aria')}
+    >
+      ✕
+    </button>
+
+    <!-- Main Workspace (Two Panels with floating border titles) -->
+    <div class="telescope-workspace">
+      <!-- Left Panel: Picker / Search -->
+      <div class="telescope-panel telescope-panel-picker">
+        <span class="telescope-panel-title"
+          >{t('telescope.projects.title')}</span
+        >
+
+        <!-- Search Prompt Line -->
+        <div class="telescope-search-row">
+          <span class="telescope-prompt-indicator">&gt;</span>
+          <input
+            type="text"
+            id="telescope-search-input"
+            class="telescope-input"
+            placeholder={t('telescope.search.placeholder')}
+            aria-label={t('telescope.search.aria')}
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span class="telescope-count" id="telescope-counter"
+            >{projects.length}/{projects.length}</span
+          >
+        </div>
+
+        <!-- Project Items List -->
+        <ul
+          class="telescope-items-list"
+          id="telescope-items-list"
+          role="listbox"
+        >
+          {
+            projects.map((p, idx) => (
+              <li
+                class={`telescope-row-item ${idx === 0 ? 'is-selected' : ''}`}
+                role="option"
+                data-id={p.id}
+                data-name={p.name}
+                data-stack={p.stack}
+                aria-selected={idx === 0 ? 'true' : 'false'}
+              >
+                <span class={`tech-icon-slot ${p.techIcon}`} aria-hidden="true">
+                  {p.techIcon === 'ts' && <TsIcon />}
+                  {p.techIcon === 'go' && <GoIcon />}
+                </span>
+                <span class="item-project-title">{p.name}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Right Panel: Preview -->
+      <div class="telescope-panel telescope-panel-preview">
+        <span class="telescope-panel-title" id="preview-border-title"
+          >sentinel.go</span
+        >
+
+        <div class="preview-content-body" id="preview-content-body">
+          <div class="preview-header-line">
+            <h3 class="preview-proj-name" id="preview-proj-name">
+              {projects[0].name}
+            </h3>
+            <div class="preview-links">
+              <a
+                id="preview-video-link"
+                href={projects[0].videoUrl || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  'preview-text-link',
+                  !projects[0].videoUrl && 'is-hidden',
+                ]}
+              >
+                {t('telescope.video.link')}
+              </a>
+              <a
+                id="preview-github-link"
+                class="preview-text-link"
+                href={projects[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('telescope.github.link')}
+              </a>
+            </div>
+          </div>
+
+          <p class="preview-detail-text" id="preview-detail-text">
+            {projects[0].detail}
+          </p>
+
+          <pre
+            id="preview-diagram"
+            role="img"
+            aria-label={projects[0].diagram
+              ? t('telescope.diagram.project.aria').replace(
+                  '{name}',
+                  projects[0].name,
+                )
+              : t('telescope.diagram.aria')}
+            class:list={[
+              'preview-diagram',
+              !projects[0].diagram && 'is-hidden',
+            ]}>{projects[0].diagram || ''}</pre>
+
+          <div
+            id="preview-highlights-list"
+            class:list={[
+              'preview-highlights-list',
+              !(projects[0].highlights && projects[0].highlights.length > 0) &&
+                'is-hidden',
+            ]}
+          >
+            {
+              projects[0].highlights &&
+                projects[0].highlights.map((h) => (
+                  <div class="preview-highlight-item">
+                    <span class="preview-highlight-bullet">-</span>
+                    <span>{h}</span>
+                  </div>
+                ))
+            }
+          </div>
+
+          <div class="preview-stack-line" id="preview-stack-line">
+            {projects[0].stack}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script
+  type="application/json"
+  id="telescope-projects-data"
+  set:html={projectsDataJson}
+/>
+<script src="../scripts/telescope.ts"></script>

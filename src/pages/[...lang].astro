@@ -1,14 +1,15 @@
 ---
 import '../styles/global.css';
-import BranchIcon from '../../public/branch.svg';
-import GoIcon from '../../public/go.svg';
-import TsIcon from '../../public/typescript.svg';
-import AstroIcon from '../../public/astro.svg';
+import BranchIcon from '../assets/icons/branch.svg';
+import GoIcon from '../assets/icons/go.svg';
+import TsIcon from '../assets/icons/typescript.svg';
+import AstroIcon from '../assets/icons/astro.svg';
 import About from '../components/About.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
+import { useTranslations } from '../i18n/ui';
 
 export function getStaticPaths() {
   return [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
@@ -16,6 +17,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const currentLang = lang === 'es' ? 'es' : 'en';
+const t = useTranslations(currentLang);
 ---
 
 <html lang={currentLang} class="dark" style="color-scheme: dark;">
@@ -29,19 +31,8 @@ const currentLang = lang === 'es' ? 'es' : 'en';
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <meta name="theme-color" content="#090808" />
     <meta name="color-scheme" content="dark" />
-    <title>
-      {
-        currentLang === 'es'
-          ? 'Eliott Velarde — Software Developer'
-          : 'Eliott Velarde — Software Developer'
-      }
-    </title>
-    <meta
-      name="description"
-      content={currentLang === 'es'
-        ? 'Portafolio de Eliott Velarde. Software Developer enfocado en APIs, sistemas backend, diseño de sistemas y arquitectura de software'
-        : "Eliott Velarde's Portfolio. Software Developer focused on APIs, backend systems, system design, and software architecture."}
-    />
+    <title>{t('page.title')}</title>
+    <meta name="description" content={t('page.description')} />
     <meta name="generator" content={Astro.generator} />
   </head>
   <body class="antialiased">
@@ -55,7 +46,7 @@ const currentLang = lang === 'es' ? 'es' : 'en';
           <Contact lang={currentLang} />
         </div>
         <footer class="status-bar">
-          <span class="status-normal">NORMAL</span>
+          <span class="status-normal" id="status-mode-indicator">NORMAL</span>
           <span class="status-branch">
             <span class="branch-icon" aria-hidden="true">
               <BranchIcon />

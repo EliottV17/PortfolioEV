@@ -244,8 +244,18 @@ a.terminal-line:hover {
 }
 
 /* Projects Section */
+.pane-projects {
+  display: flex;
+  flex-direction: column;
+}
+
 .project-list {
-  padding: 5px 0;
+  flex: 1;
+  min-height: 0;
+  padding: 5px 0 0 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
 .project-row {
@@ -254,6 +264,12 @@ a.terminal-line:hover {
   gap: 14px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--color-card);
+  cursor: pointer;
+}
+
+.project-row:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
 }
 
 .project-row:last-child {
@@ -279,6 +295,16 @@ a.terminal-line:hover {
   border-left-color: var(--blue);
 }
 
+.project-copy.green,
+.project-row.green .project-copy {
+  border-left-color: var(--green);
+}
+
+.project-copy.yellow,
+.project-row.yellow .project-copy {
+  border-left-color: var(--yellow);
+}
+
 .project-title-row {
   display: flex;
   align-items: center;
@@ -299,9 +325,15 @@ a.terminal-line:hover {
   text-decoration: none;
   color: var(--muted);
   letter-spacing: 0.02em;
+  cursor: pointer;
   transition:
     color 0.15s ease,
     text-shadow 0.15s ease;
+}
+
+.project-tag-link:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .project-tag-link:hover {
@@ -337,6 +369,50 @@ a.terminal-line:hover {
 
 .project-index.blue {
   color: var(--blue);
+}
+
+.project-index.green {
+  color: var(--green);
+}
+
+.project-index.yellow {
+  color: var(--yellow);
+}
+
+.projects-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px 10px;
+  border-top: 1px solid var(--color-card);
+}
+
+.projects-more-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1.4;
+  transition:
+    color 0.15s ease,
+    text-shadow 0.15s ease;
+}
+
+.projects-more-btn:hover {
+  color: var(--bright);
+  text-shadow: 0 0 8px rgba(220, 215, 186, 0.3);
+}
+
+.projects-more-btn:focus-visible {
+  color: var(--bright);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Skills Section */
@@ -434,10 +510,6 @@ a.terminal-line:hover {
   color: var(--bright);
 }
 
-.skill-spaced {
-  margin-top: 10px;
-}
-
 /* Status Bar */
 .status-bar {
   display: flex;
@@ -446,7 +518,7 @@ a.terminal-line:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 10002;
   align-items: center;
   height: 20px;
   padding: 0 12px;
@@ -481,6 +553,14 @@ a.terminal-line:hover {
   );
   user-select: none;
   z-index: 2;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.status-normal.mode-insert {
+  background-color: var(--green);
+  color: var(--background);
 }
 
 .status-branch {
@@ -540,10 +620,6 @@ a.terminal-line:hover {
   flex-shrink: 0;
   fill: currentColor;
   color: var(--color-bright, var(--bright));
-}
-
-.status-mode {
-  color: var(--green);
 }
 
 .status-separator {
