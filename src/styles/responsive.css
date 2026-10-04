@@ -281,6 +281,22 @@
   }
 }
 
+.pane.is-scroll-active {
+  z-index: 2;
+  box-shadow:
+    inset 0 0 0 1px rgba(196, 178, 138, 0.35),
+    inset 0 0 8px rgba(196, 178, 138, 0.03);
+}
+
+.pane.is-scroll-active .pane-heading span:nth-child(2) {
+  color: var(--yellow);
+  text-shadow: 0 0 4px rgba(196, 178, 138, 0.25);
+}
+
+.pane.is-scroll-active .pane-mark {
+  color: var(--bright);
+}
+
 @media (hover: hover) {
   .pane:hover,
   .pane:focus-within {
