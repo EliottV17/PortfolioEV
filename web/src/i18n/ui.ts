@@ -32,27 +32,7 @@ export const ui = {
     'exp.item3.desc':
       'Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management.',
 
-    'projects.sentinel.detail':
-      'Distributed uptime and latency monitoring platform (NestJS + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.',
-    'projects.gymBuddy.detail':
-      'Engineered a high-performance matching engine utilizing PostGIS to resolve and optimize complex geospatial queries for low-latency proximity searches.',
-    'projects.tenantInbox.detail':
-      'Real-time web platform that centralizes tenant messages received via form and webhook. An AI agent classifies them by category and urgency, writes a summary and drafts a reply that a person reviews and approves before sending.',
-    'projects.sentinel.highlight1':
-      'Decoupled runtimes: Go worker (pgx pool) + NestJS REST API',
-    'projects.sentinel.highlight2':
-      'Pluggable checker registry: new probe protocols without touching the polling loop',
-    'projects.gymBuddy.highlight1':
-      'Geospatial discovery: ordered by real distance with PostGIS ST_Distance, excluding already-swiped users',
-    'projects.gymBuddy.highlight2':
-      'Race-safe matching: composite unique indexes on swipes and matches, duplicate swipes handled via 409',
-    'projects.tenantInbox.highlight1':
-      'State-machine pipeline: idempotent transitions (new → classifying → classified | failed)',
-    'projects.tenantInbox.highlight2':
-      'Webhook with shared secret and constant-time comparison; daily classification cap',
-    'projects.tenantInbox.highlight3':
-      'Zod as single source of truth: validates model output and generates the JSON Schema',
-    'projects.project4.detail':
+        'projects.project4.detail':
       'Cloud-native API gateway and telemetry pipeline featuring automated tracing, rate limiting, and zero-downtime blue/green deployment orchestration.',
     'projects.more.singular': '[ +1 more · open :telescope ]',
     'projects.more.plural': '[ +{count} more · open :telescope ]',
@@ -125,27 +105,7 @@ export const ui = {
     'exp.item3.desc':
       'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
-    'projects.sentinel.detail':
-      'Plataforma distribuida de monitoreo de disponibilidad y latencia (NestJS + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.',
-    'projects.gymBuddy.detail':
-      'Motor de emparejamiento de alto rendimiento que utiliza PostGIS para resolver y optimizar consultas geoespaciales complejas en búsquedas por proximidad de baja latencia.',
-    'projects.tenantInbox.detail':
-      'Plataforma web en tiempo real que centraliza los mensajes de inquilinos recibidos por formulario y webhook. Un agente de IA los clasifica por categoría y urgencia, genera un resumen y propone un borrador de respuesta que una persona revisa y aprueba antes de enviarlo.',
-    'projects.sentinel.highlight1':
-      'Runtimes desacoplados: worker en Go (pool pgx) + API REST en NestJS',
-    'projects.sentinel.highlight2':
-      'Registry de checkers: nuevos protocolos de sondeo sin tocar el loop de polling',
-    'projects.gymBuddy.highlight1':
-      'Descubrimiento geoespacial: orden por distancia real con ST_Distance de PostGIS, excluyendo usuarios ya swipeados',
-    'projects.gymBuddy.highlight2':
-      'Matching seguro ante concurrencia: índices únicos compuestos en swipes y matches, swipes duplicados resueltos con 409',
-    'projects.tenantInbox.highlight1':
-      'Pipeline como máquina de estados: transiciones idempotentes (new → classifying → classified | failed)',
-    'projects.tenantInbox.highlight2':
-      'Webhook con secreto compartido y comparación en tiempo constante; tope diario de clasificaciones',
-    'projects.tenantInbox.highlight3':
-      'Zod como fuente única de verdad: valida la respuesta del modelo y genera el JSON Schema',
-    'projects.project4.detail':
+        'projects.project4.detail':
       'API gateway cloud-native y pipeline de telemetría con trazabilidad distribuida automatizada, rate limiting y despliegues blue/green sin interrupciones.',
     'projects.more.singular': '[ +1 más · abrir :telescope ]',
     'projects.more.plural': '[ +{count} más · abrir :telescope ]',
