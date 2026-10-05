@@ -1,0 +1,28 @@
+experiences:
+  - content:
+      en:
+        date: "2026 — now"
+        role: "Independent · Software Developer"
+        description: "Developing personal and freelance backend projects, focusing on API design, database management, and asynchronous tasks."
+      es:
+        date: "2026 — presente"
+        role: "Independiente · Software Developer"
+        description: "Desarrollo de proyectos personales y freelance de backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas."
+  - content:
+      en:
+        date: "April 2026 — August 2026"
+        role: "Meevent PE · Backend Developer (Project Collaborator)"
+        description: "Optimized server-side logic and service architecture, reducing API response times by 30% and implementing automated tests to ensure system stability."
+      es:
+        date: "Abril 2026 — Agosto 2026"
+        role: "Meevent PE · Desarrollador Backend (Colaborador)"
+        description: "Optimización de la lógica del servidor y arquitectura de servicios, reduciendo los tiempos de respuesta de la API en un 30% e implementando pruebas automatizadas para asegurar la estabilidad del sistema."
+  - content:
+      en:
+        date: "July 2025 — December 2025"
+        role: "Simply Technologies MX · Frontend Developer (Intern)"
+        description: "Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management."
+      es:
+        date: "Julio 2025 — Diciembre 2025"
+        role: "Simply Technologies MX · Desarrollador Frontend (Practicante)"
+        description: "Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna."
