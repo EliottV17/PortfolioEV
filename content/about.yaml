@@ -1,0 +1,15 @@
+profile:
+  name: Eliott Velarde
+  content:
+    en:
+      eyebrow: "// hello, i'm"
+      role: Software Developer
+      bio: "Software Developer focused on building resilient systems. I specialize in developing concurrent execution engines in Go and structured APIs with NestJS, optimizing data modeling and persistence in PostgreSQL, while keeping a solid React foundation for end-to-end integration."
+      location: "⌁ based in Peru"
+      status: "◷ open to new projects"
+    es:
+      eyebrow: "// hola, soy"
+      role: Software Developer
+      bio: "Software Developer enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, optimizando la persistencia y el modelado de datos en PostgreSQL, manteniendo una base sólida en React para integraciones end-to-end."
+      location: "⌁ ubicado en Perú"
+      status: "◷ abierto a nuevos proyectos"

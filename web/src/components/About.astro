@@ -1,5 +1,6 @@
 ---
 import { useTranslations, defaultLang } from '../i18n/ui';
+import { getAbout } from '../lib/about';
 
 interface Props {
   lang?: 'en' | 'es';
@@ -7,6 +8,7 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
+const about = getAbout(lang);
 ---
 
 <section class="pane pane-about" aria-labelledby="about-title">
@@ -45,17 +47,17 @@ const t = useTranslations(lang);
                                                   
               </pre>
     <div>
-      <p class="eyebrow">{t('about.eyebrow')}</p>
+      <p class="eyebrow">{about.eyebrow}</p>
       <h1>Eliott<br /><em>Velarde</em></h1>
       <p class="role">
-        {t('about.role')}<span class="cursor"></span>
+        {about.role}<span class="cursor"></span>
       </p>
       <p class="bio">
-        {t('about.bio')}
+        {about.bio}
       </p>
       <div class="about-meta">
-        <span>{t('about.location')}</span>
-        <span>{t('about.status')}</span>
+        <span>{about.location}</span>
+        <span>{about.status}</span>
       </div>
     </div>
   </div>
