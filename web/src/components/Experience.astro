@@ -1,5 +1,6 @@
 ---
 import { useTranslations, defaultLang } from '../i18n/ui';
+import { getExperience } from '../lib/experience';
 
 interface Props {
   lang?: 'en' | 'es';
@@ -7,6 +8,7 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
+const experiences = getExperience(lang);
 ---
 
 <section class="pane pane-experience" aria-labelledby="experience-title">
@@ -16,31 +18,15 @@ const t = useTranslations(lang);
     <span class="pane-mark">▾</span>
   </div>
   <div class="timeline">
-    <article class="timeline-item current">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="date">{t('exp.item1.date')}</p>
-        <h2>{t('exp.item1.role')}</h2>
-        <p>{t('exp.item1.desc')}</p>
-      </div>
-    </article>
-
-    <article class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="date">{t('exp.item2.date')}</p>
-        <h2>{t('exp.item2.role')}</h2>
-        <p>{t('exp.item2.desc')}</p>
-      </div>
-    </article>
-
-    <article class="timeline-item">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="date">{t('exp.item3.date')}</p>
-        <h2>{t('exp.item3.role')}</h2>
-        <p>{t('exp.item3.desc')}</p>
-      </div>
-    </article>
+    {experiences.map((experience, index) => (
+      <article class={`timeline-item${index === 0 ? ' current' : ''}`}>
+        <span class="timeline-dot"></span>
+        <div>
+          <p class="date">{experience.date}</p>
+          <h2>{experience.role}</h2>
+          <p>{experience.description}</p>
+        </div>
+      </article>
+    ))}
   </div>
 </section>
