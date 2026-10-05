@@ -238,6 +238,10 @@
     display: none !important;
   }
 
+  .preview-highlights-list {
+    display: none !important;
+  }
+
   .status-bar {
     padding: 0 10px;
     padding-bottom: env(safe-area-inset-bottom, 0px);

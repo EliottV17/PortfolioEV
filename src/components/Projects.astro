@@ -16,11 +16,48 @@ const projects = [
     name: 'Sentinel',
     url: 'https://github.com/EliottV17/sentinel-project',
     videoUrl: 'https://youtu.be/0To4e1rmMRM',
+    webUrl: 'https://sentinel.eliottvelarde.com/status',
     detail: t('projects.sentinel.detail'),
     stack:
       'TypeScript · Go · NestJS · Postgres · PrismaORM · JWT · CI/CD · Jest',
     color: 'red',
     techIcon: 'go',
+    diagram: `
+       ┌────────────────────────┐
+       │ Browser / React Client │
+       └───────────┬────────────┘
+                   │ HTTPS
+                   ▼
+     ┌─────────────┴────────────────┐
+     │     Caddy reverse proxy      │
+     │      (production edge)       │
+     └──┬────────────────────┬──────┘
+        │ other paths        │ /api/* (direct)
+        ▼                    ▼
+ ┌─────────────┐   ┌───────────────────┐
+ │ Nginx (UI)  │   │  NestJS REST API  │
+ │ static SPA  │   │ (JWT auth & CRUD) │
+ └─────────────┘   └─────────┬─────────┘
+                             │ Prisma queries
+                             ▼
+                   ┌───────────────────┐
+                   │   PostgreSQL 17   │
+                   │  (shared schema)  │
+                   └─────────▲─────────┘
+                             │ pgx: due monitors
+                             │ & check results
+                   ┌─────────┴─────────┐
+                   │  Go poller worker │
+                   │ (checker registry)│
+                   └─────────┬─────────┘
+                             │ SSRF-filtered
+                             │ HTTP/S requests
+                             ▼
+                   ┌───────────────────┐
+                   │ Configured HTTP / │
+                   │   HTTPS targets   │
+                   └───────────────────┘
+`,
     highlights: [
       t('projects.sentinel.highlight1'),
       t('projects.sentinel.highlight2'),
@@ -34,16 +71,90 @@ const projects = [
     stack: 'TypeScript · NestJS · Postgres · TypeORM · PostGIS · JWT',
     color: 'blue',
     techIcon: 'ts',
-    diagram: ` client    React 19 · Vite · TanStack Query · chat polling every 5s
-   │
-   ▼  Nginx   /api ─▶ :3000
- api       NestJS · /api/v1 · ValidationPipe · JWT AuthGuard
-   │         modules    auth · users · swipes · matches · messages
-   │         matching   swipe LIKE ─▶ reciprocal? ─▶ match ─▶ chat
-   │         discovery  suggestions ordered by ST_Distance
-   ▼  TypeORM
- db        PostgreSQL 15 + PostGIS · geography(Point, 4326)
-             users · swipes · matches · messages`,
+    diagram: `
+     ┌───────────────┐   ┌────────────┐
+     │ User register │   │ User login │
+     └───────┬───────┘   └──────┬─────┘
+             └─────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ Issue JWT token │
+              └────────┬────────┘
+                       │
+                       ▼
+           ┌───────────────────────┐
+           │ Setup profile and GPS │
+           │       location        │
+           └───────────┬───────────┘
+                       │
+                       ▼
+         ┌──────────────────────────┐
+         │ Fetch nearby suggestions │
+         │       via PostGIS        │
+         └─────────────┬────────────┘
+                       │
+                       ▼
+             ┌───────────────────┐
+             │ Render swipe card │◄───────────┐
+             └─────────┬─────────┘            │
+                       │                      │
+                       ▼                      │
+           ┌───────────────────────┐          │
+           │ Swipe action: LIKE or │          │
+           │         PASS          │          │
+           └───────────┬───────────┘          │
+                       │                      │
+                       ▼                      │
+          ┌────────────────────────┐          │
+          │ Save swipe in database │          │
+          └────────────┬───────────┘          │
+                       │                      │
+                       ▼                      │
+               ╭──────────────╮               │
+               │ Mutual LIKE? │               │
+               ╰───────┬──────╯               │
+           ┌───────────┴───────────┐          │
+           ▼No                     ▼Yes       │
+ ┌─────────────────┐  ┌─────────────────────┐ │
+ │ Advance to next │  │ Create match record │ │
+ │    candidate    ├──┴──────────┬──────────┘─┘
+ └─────────────────┘             │
+                       ┌─────────┘
+                       ▼
+            ┌──────────────────────┐
+            │ Trigger match banner │
+            └──────────┬───────────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │ List matches │
+                └──────┬───────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ Open chat thread ├─────┐
+              └────────┬─────────┘     │
+                       │               │
+                       ▼               │
+              ┌───────────────────┐    │
+              │ Send chat message │    │
+              └────────┬──────────┘    │
+                       │               │
+                       ▼               │
+          ┌──────────────────────────┐ │
+          │ Save message in database │ │
+          └────────────┬─────────────┘ │
+                       │               │
+                       ▼               │
+           ┌────────────────────────┐  │
+           │ Poll messages every 5s │◄─┘
+           └───────────┬────────────┘
+                       │
+                       ▼
+             ┌─────────────────────┐
+             │ Render message list │
+             └─────────────────────┘
+`,
     highlights: [
       t('projects.gymBuddy.highlight1'),
       t('projects.gymBuddy.highlight2'),
@@ -53,12 +164,68 @@ const projects = [
     id: 'tenantInbox',
     name: 'TenantInbox',
     url: 'https://github.com/EliottV17/TenantInbox',
+    webUrl: 'https://tenant-inbox-ten.vercel.app/inbox',
     filename: 'tenantinbox.ts',
     detail: t('projects.tenantInbox.detail'),
     stack:
       'Next.js (App Router) · TypeScript · Convex · OpenRouter (GLM-5.3-flash) · Zod 4 · Tailwind CSS v4 · shadcn/ui · Bun · Vitest',
     color: 'green',
     techIcon: 'ts',
+    diagram: `
+┌─────────────────┐   ┌─────────────────┐
+│   Inbox form    │   │  POST webhook   │
+└────────┬────────┘   └────────┬────────┘
+         │                     │
+         ▼                     ▼
+┌─────────────────┐   ┌─────────────────┐
+│ Create mutation │   │ Webhook handler │
+└────────┬────────┘   └────────┬────────┘
+         └──────────┬──────────┘
+                    ▼
+        ┌───────────────────────┐
+        │   Save message: new   │
+        └───────────┬───────────┘
+                    │
+                    ▼
+       ┌─────────────────────────┐
+       │ Schedule classification │
+       └────────────┬────────────┘
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │ Classification action │
+        └───────────┬───────────┘
+                    │
+                    ▼
+         ┌─────────────────────┐
+         │ State + usage guard │
+         └──────────┬──────────┘
+                    │
+                    ▼
+    ┌───────────────────────────────┐
+    │ OpenRouter structured output  │
+    └───────────────┬───────────────┘
+                    │
+                    ▼
+   ┌─────────────────────────────────┐
+   │ Parse JSON + validate with Zod  │
+   └─────┬─────────────────────┬─────┘
+         │                     │
+         ▼                     ▼
+  ┌─────────────┐       ┌─────────────┐
+  │ Save result │       │ Mark failed │
+  └──────┬──────┘       └──────┬──────┘
+         └──────────┬──────────┘
+                    ▼
+           ┌─────────────────┐
+           │ Reactive inbox  │
+           └────────┬────────┘
+                    │
+                    ▼
+       ┌─────────────────────────┐
+       │ Human reviews and acts  │
+       └─────────────────────────┘
+`,
     highlights: [
       t('projects.tenantInbox.highlight1'),
       t('projects.tenantInbox.highlight2'),
@@ -117,6 +284,20 @@ const projectsDataJson = JSON.stringify(
           <div class={`project-copy ${project.color}`}>
             <div class="project-title-row">
               <strong>{project.name}</strong>
+              {project.webUrl && (
+                <a
+                  class="project-tag-link"
+                  href={project.webUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t('projects.web.aria').replace(
+                    '{name}',
+                    project.name,
+                  )}
+                >
+                  {t('projects.web.link')}
+                </a>
+              )}
               {project.videoUrl && (
                 <a
                   class="project-tag-link"
@@ -252,6 +433,18 @@ const projectsDataJson = JSON.stringify(
               {projects[0].name}
             </h3>
             <div class="preview-links">
+              <a
+                id="preview-web-link"
+                href={projects[0].webUrl || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  'preview-text-link',
+                  !projects[0].webUrl && 'is-hidden',
+                ]}
+              >
+                {t('telescope.web.link')}
+              </a>
               <a
                 id="preview-video-link"
                 href={projects[0].videoUrl || '#'}

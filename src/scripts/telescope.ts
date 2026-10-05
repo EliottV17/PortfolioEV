@@ -5,6 +5,7 @@ interface ProjectData {
   name: string;
   url: string;
   videoUrl?: string;
+  webUrl?: string;
   detail: string;
   stack: string;
   color: string;
@@ -52,6 +53,9 @@ const initTelescope = () => {
   // Preview elements
   const previewBorderTitle = document.getElementById('preview-border-title');
   const previewName = document.getElementById('preview-proj-name');
+  const previewWebLink = document.getElementById(
+    'preview-web-link',
+  ) as HTMLAnchorElement | null;
   const previewVideoLink = document.getElementById(
     'preview-video-link',
   ) as HTMLAnchorElement | null;
@@ -98,6 +102,10 @@ const initTelescope = () => {
     if (!proj) {
       if (previewBorderTitle) previewBorderTitle.textContent = 'empty';
       if (previewName) previewName.textContent = 'No project selected';
+      if (previewWebLink) {
+        previewWebLink.classList.add('is-hidden');
+        previewWebLink.style.display = 'none';
+      }
       if (previewVideoLink) previewVideoLink.style.display = 'none';
       if (previewGithubLink) previewGithubLink.style.display = 'none';
       if (previewDetail)
@@ -126,6 +134,17 @@ const initTelescope = () => {
         proj.filename || `${toSlug(proj.name)}.${proj.techIcon || 'ts'}`;
     }
     if (previewName) previewName.textContent = proj.name;
+
+    if (previewWebLink) {
+      if (proj.webUrl) {
+        previewWebLink.href = proj.webUrl;
+        previewWebLink.classList.remove('is-hidden');
+        previewWebLink.style.display = 'inline';
+      } else {
+        previewWebLink.classList.add('is-hidden');
+        previewWebLink.style.display = 'none';
+      }
+    }
 
     if (previewVideoLink) {
       if (proj.videoUrl) {
