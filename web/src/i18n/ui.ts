@@ -10,13 +10,6 @@ export const ui = {
     'nav.projects': 'projects',
     'nav.skills': 'skills',
     'nav.contact': 'contact',
-    'about.eyebrow': "// hello, i'm",
-    'about.role': 'Software Developer',
-    'about.bio':
-      'Software Developer focused on building resilient systems. I specialize in developing concurrent execution engines in Go and structured APIs with NestJS, optimizing data modeling and persistence in PostgreSQL, while keeping a solid React foundation for end-to-end integration.',
-    'about.location': '⌁ based in Peru',
-    'about.status': '◷ open to new projects',
-
         'projects.project4.detail':
       'Cloud-native API gateway and telemetry pipeline featuring automated tracing, rate limiting, and zero-downtime blue/green deployment orchestration.',
     'projects.more.singular': '[ +1 more · open :telescope ]',
@@ -67,13 +60,6 @@ export const ui = {
     'nav.projects': 'proyectos',
     'nav.skills': 'habilidades',
     'nav.contact': 'contacto',
-    'about.eyebrow': '// hola, soy',
-    'about.role': 'Software Developer',
-    'about.bio':
-      'Software Developer enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, optimizando la persistencia y el modelado de datos en PostgreSQL, manteniendo una base sólida en React para integraciones end-to-end.',
-    'about.location': '⌁ ubicado en Perú',
-    'about.status': '◷ abierto a nuevos proyectos',
-
         'projects.project4.detail':
       'API gateway cloud-native y pipeline de telemetría con trazabilidad distribuida automatizada, rate limiting y despliegues blue/green sin interrupciones.',
     'projects.more.singular': '[ +1 más · abrir :telescope ]',
