@@ -1,0 +1,57 @@
+skills:
+  - category: Stack
+    groups:
+      - name: Go
+        items:
+          - net/http
+          - pgx
+          - testing
+          - log/slog
+      - name: TypeScript
+        items:
+          - NestJS
+          - Express
+          - React
+  - category:
+      en: Databases
+      es: Bases de datos
+    groups:
+      - name: SQL
+        items:
+          - PostgreSQL
+          - MySQL
+          - SQL Server
+      - name: NoSQL
+        items:
+          - MongoDB
+          - Redis
+  - category:
+      en: APIs & Architecture
+      es: APIs y arquitectura
+    groups:
+      - name: APIs
+        items:
+          - REST APIs
+          - API Gateway
+          - JWT
+      - name:
+          en: Architecture
+          es: Arquitectura
+        items:
+          - en: Microservices
+            es: Microservicios
+          - Hexagonal Arch.
+          - TDD
+  - category: Cloud & DevOps
+    groups:
+      - name: Cloud
+        items:
+          - Docker
+          - AWS (IAM, EC2)
+          - CI/CD
+      - name:
+          en: Tools
+          es: Herramientas
+        items:
+          - Git
+          - GitHub Actions

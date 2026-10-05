@@ -33,13 +33,6 @@ export const ui = {
     'telescope.diagram.aria': 'Architecture diagram',
     'telescope.diagram.project.aria': '{name} architecture diagram',
 
-    'skills.languages': 'Stack',
-    'skills.databases': 'Databases',
-    'skills.architecture': 'APIs & Architecture',
-    'skills.cloud': 'Cloud & DevOps',
-    'skills.tagArchitecture': 'Architecture',
-    'skills.microservices': 'Microservices',
-    'skills.tools': 'Tools',
     'contact.copy':
       "Do you have a project in mind or are you looking for a software developer? Let's talk.",
     'contact.network': 'Network',
@@ -83,13 +76,6 @@ export const ui = {
     'telescope.diagram.aria': 'Diagrama de arquitectura',
     'telescope.diagram.project.aria': 'Diagrama de arquitectura de {name}',
 
-    'skills.languages': 'Stack',
-    'skills.databases': 'Bases de datos',
-    'skills.architecture': 'APIs y arquitectura',
-    'skills.cloud': 'Cloud & DevOps',
-    'skills.tagArchitecture': 'Arquitectura',
-    'skills.microservices': 'Microservicios',
-    'skills.tools': 'Herramientas',
     'contact.copy':
       '¿Tienes un proyecto en mente o buscas un software developer? Hablemos.',
     'contact.network': 'Redes',
