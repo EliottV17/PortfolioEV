@@ -17,21 +17,6 @@ export const ui = {
     'about.location': '⌁ based in Peru',
     'about.status': '◷ open to new projects',
 
-    'exp.item1.date': '2026 — now',
-    'exp.item1.role': 'Independent · Software Developer',
-    'exp.item1.desc':
-      'Developing personal and freelance backend projects, focusing on API design, database management, and asynchronous tasks.',
-
-    'exp.item2.date': 'April 2026 — August 2026',
-    'exp.item2.role': 'Meevent PE · Backend Developer (Project Collaborator)',
-    'exp.item2.desc':
-      'Optimized server-side logic and service architecture, reducing API response times by 30% and implementing automated tests to ensure system stability.',
-
-    'exp.item3.date': 'July 2025 — December 2025',
-    'exp.item3.role': 'Simply Technologies MX · Frontend Developer (Intern)',
-    'exp.item3.desc':
-      'Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management.',
-
         'projects.project4.detail':
       'Cloud-native API gateway and telemetry pipeline featuring automated tracing, rate limiting, and zero-downtime blue/green deployment orchestration.',
     'projects.more.singular': '[ +1 more · open :telescope ]',
@@ -88,22 +73,6 @@ export const ui = {
       'Software Developer enfocado en construir sistemas resilientes. Me especializo en desarrollar motores de ejecución concurrente en Go y APIs estructuradas con NestJS, optimizando la persistencia y el modelado de datos en PostgreSQL, manteniendo una base sólida en React para integraciones end-to-end.',
     'about.location': '⌁ ubicado en Perú',
     'about.status': '◷ abierto a nuevos proyectos',
-
-    'exp.item1.date': '2026 — presente',
-    'exp.item1.role': 'Independiente · Software Developer',
-    'exp.item1.desc':
-      'Desarrollo de proyectos personales y freelance de backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas.',
-
-    'exp.item2.date': 'Abril 2026 — Agosto 2026',
-    'exp.item2.role': 'Meevent PE · Desarrollador Backend (Colaborador)',
-    'exp.item2.desc':
-      'Optimización de la lógica del servidor y arquitectura de servicios, reduciendo los tiempos de respuesta de la API en un 30% e implementando pruebas automatizadas para asegurar la estabilidad del sistema.',
-
-    'exp.item3.date': 'Julio 2025 — Diciembre 2025',
-    'exp.item3.role':
-      'Simply Technologies MX · Desarrollador Frontend (Practicante)',
-    'exp.item3.desc':
-      'Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna.',
 
         'projects.project4.detail':
       'API gateway cloud-native y pipeline de telemetría con trazabilidad distribuida automatizada, rate limiting y despliegues blue/green sin interrupciones.',
