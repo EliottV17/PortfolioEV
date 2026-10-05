@@ -1,0 +1,257 @@
+projects:
+  - id: sentinel
+    name: Sentinel
+    links:
+      github: https://github.com/EliottV17/sentinel-project
+      video: https://youtu.be/0To4e1rmMRM
+      web: https://sentinel.eliottvelarde.com/status
+    stack:
+      - TypeScript
+      - Go
+      - NestJS
+      - Postgres
+      - PrismaORM
+      - JWT
+      - CI/CD
+      - Jest
+    color: red
+    techIcon: go
+    diagram: |1
+     
+            ┌────────────────────────┐
+            │ Browser / React Client │
+            └───────────┬────────────┘
+                        │ HTTPS
+                        ▼
+          ┌─────────────┴────────────────┐
+          │     Caddy reverse proxy      │
+          │      (production edge)       │
+          └──┬────────────────────┬──────┘
+             │ other paths        │ /api/* (direct)
+             ▼                    ▼
+      ┌─────────────┐   ┌───────────────────┐
+      │ Nginx (UI)  │   │  NestJS REST API  │
+      │ static SPA  │   │ (JWT auth & CRUD) │
+      └─────────────┘   └─────────┬─────────┘
+                                  │ Prisma queries
+                                  ▼
+                        ┌───────────────────┐
+                        │   PostgreSQL 17   │
+                        │  (shared schema)  │
+                        └─────────▲─────────┘
+                                  │ pgx: due monitors
+                                  │ & check results
+                        ┌─────────┴─────────┐
+                        │  Go poller worker │
+                        │ (checker registry)│
+                        └─────────┬─────────┘
+                                  │ SSRF-filtered
+                                  │ HTTP/S requests
+                                  ▼
+                        ┌───────────────────┐
+                        │ Configured HTTP / │
+                        │   HTTPS targets   │
+                        └───────────────────┘
+    content:
+      en:
+        detail: 'Distributed uptime and latency monitoring platform (NestJS + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.'
+        highlights:
+          - 'Decoupled runtimes: Go worker (pgx pool) + NestJS REST API'
+          - 'Pluggable checker registry: new probe protocols without touching the polling loop'
+      es:
+        detail: 'Plataforma distribuida de monitoreo de disponibilidad y latencia (NestJS + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.'
+        highlights:
+          - 'Runtimes desacoplados: worker en Go (pool pgx) + API REST en NestJS'
+          - 'Registry de checkers: nuevos protocolos de sondeo sin tocar el loop de polling'
+  - id: gymBuddy
+    name: Gym Buddy
+    links:
+      github: https://github.com/EliottV17/Gym-Buddy-App
+    stack:
+      - TypeScript
+      - NestJS
+      - Postgres
+      - TypeORM
+      - PostGIS
+      - JWT
+    color: blue
+    techIcon: ts
+    diagram: |
+      ┌───────────────┐   ┌────────────┐
+      │ User register │   │ User login │
+      └───────┬───────┘   └──────┬─────┘
+              └─────────┬────────┘
+                        ▼
+               ┌─────────────────┐
+               │ Issue JWT token │
+               └────────┬────────┘
+                        │
+                        ▼
+            ┌───────────────────────┐
+            │ Setup profile and GPS │
+            │       location        │
+            └───────────┬───────────┘
+                        │
+                        ▼
+          ┌──────────────────────────┐
+          │ Fetch nearby suggestions │
+          │       via PostGIS        │
+          └─────────────┬────────────┘
+                        │
+                        ▼
+                ┌───────────────────┐
+                │ Render swipe card │◄───────────┐
+                └─────────┬─────────┘            │
+                          │                      │
+                          ▼                      │
+              ┌───────────────────────┐          │
+              │ Swipe action: LIKE or │          │
+              │         PASS          │          │
+              └───────────┬───────────┘          │
+                          │                      │
+                          ▼                      │
+             ┌────────────────────────┐          │
+             │ Save swipe in database │          │
+             └────────────┬───────────┘          │
+                          │                      │
+                          ▼                      │
+                  ╭──────────────╮               │
+                  │ Mutual LIKE? │               │
+                  ╰───────┬──────╯               │
+              ┌───────────┴───────────┐          │
+              ▼No                     ▼Yes       │
+       ┌─────────────────┐  ┌─────────────────────┐ │
+       │ Advance to next │  │ Create match record │ │
+       │    candidate    ├──┴──────────┬──────────┘─┘
+       └─────────────────┘             │
+                            ┌─────────┘
+                            ▼
+                 ┌──────────────────────┐
+                 │ Trigger match banner │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                     ┌──────────────┐
+                     │ List matches │
+                     └──────┬───────┘
+                            │
+                            ▼
+                   ┌──────────────────┐
+                   │ Open chat thread ├─────┐
+                   └────────┬─────────┘     │
+                            │               │
+                            ▼               │
+                   ┌───────────────────┐    │
+                   │ Send chat message │    │
+                   └────────┬──────────┘    │
+                            │               │
+                            ▼               │
+               ┌──────────────────────────┐ │
+               │ Save message in database │ │
+               └────────────┬─────────────┘ │
+                            │               │
+                            ▼               │
+                ┌────────────────────────┐  │
+                │ Poll messages every 5s │◄─┘
+                └───────────┬────────────┘
+                            │
+                            ▼
+                  ┌─────────────────────┐
+                  │ Render message list │
+                  └─────────────────────┘
+    content:
+      en:
+        detail: 'Engineered a high-performance matching engine utilizing PostGIS to resolve and optimize complex geospatial queries for low-latency proximity searches.'
+        highlights:
+          - 'Geospatial discovery: ordered by real distance with PostGIS ST_Distance, excluding already-swiped users'
+          - 'Race-safe matching: composite unique indexes on swipes and matches, duplicate swipes handled via 409'
+      es:
+        detail: 'Motor de emparejamiento de alto rendimiento que utiliza PostGIS para resolver y optimizar consultas geoespaciales complejas en búsquedas por proximidad de baja latencia.'
+        highlights:
+          - 'Descubrimiento geoespacial: orden por distancia real con ST_Distance de PostGIS, excluyendo usuarios ya swipeados'
+          - 'Matching seguro ante concurrencia: índices únicos compuestos en swipes y matches, swipes duplicados resueltos con 409'
+  - id: tenantInbox
+    name: TenantInbox
+    links:
+      github: https://github.com/EliottV17/TenantInbox
+      web: https://tenant-inbox-ten.vercel.app/inbox
+    stack:
+      - Next.js (App Router)
+      - TypeScript
+      - Convex
+      - OpenRouter (GLM-5.3-flash)
+      - Zod 4
+      - Tailwind CSS v4
+      - shadcn/ui
+      - Bun
+      - Vitest
+    color: green
+    techIcon: ts
+    filename: tenantinbox.ts
+    diagram: |
+      ┌─────────────────┐   ┌─────────────────┐
+      │   Inbox form    │   │  POST webhook   │
+      └────────┬────────┘   └────────┬────────┘
+               │                     │
+               ▼                     ▼
+      ┌─────────────────┐   ┌─────────────────┐
+      │ Create mutation │   │ Webhook handler │
+      └────────┬────────┘   └────────┬────────┘
+               └──────────┬──────────┘
+                          ▼
+              ┌───────────────────────┐
+              │   Save message: new   │
+              └───────────┬───────────┘
+                          │
+                          ▼
+             ┌─────────────────────────┐
+             │ Schedule classification │
+             └────────────┬────────────┘
+                          │
+                          ▼
+              ┌───────────────────────┐
+              │ Classification action │
+              └───────────┬───────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │ State + usage guard │
+               └──────────┬──────────┘
+                          │
+                          ▼
+          ┌───────────────────────────────┐
+          │ OpenRouter structured output  │
+          └───────────────┬───────────────┘
+                          │
+                          ▼
+         ┌─────────────────────────────────┐
+         │ Parse JSON + validate with Zod  │
+         └─────┬─────────────────────┬─────┘
+               │                     │
+               ▼                     ▼
+        ┌─────────────┐       ┌─────────────┐
+        │ Save result │       │ Mark failed │
+        └──────┬──────┘       └──────┬──────┘
+               └──────────┬──────────┘
+                          ▼
+                 ┌─────────────────┐
+                 │ Reactive inbox  │
+                 └────────┬────────┘
+                          │
+                          ▼
+             ┌─────────────────────────┐
+             │ Human reviews and acts  │
+             └─────────────────────────┘
+    content:
+      en:
+        detail: 'Real-time web platform that centralizes tenant messages received via form and webhook. An AI agent classifies them by category and urgency, writes a summary and drafts a reply that a person reviews and approves before sending.'
+        highlights:
+          - 'State-machine pipeline: idempotent transitions (new → classifying → classified | failed)'
+          - 'Webhook with shared secret and constant-time comparison; daily classification cap'
+          - 'Zod as single source of truth: validates model output and generates the JSON Schema'
+      es:
+        detail: 'Plataforma web en tiempo real que centraliza los mensajes de inquilinos recibidos por formulario y webhook. Un agente de IA los clasifica por categoría y urgencia, genera un resumen y propone un borrador de respuesta que una persona revisa y aprueba antes de enviarlo.'
+        highlights:
+          - 'Pipeline como máquina de estados: transiciones idempotentes (new → classifying → classified | failed)'
+          - 'Webhook con secreto compartido y comparación en tiempo constante; tope diario de clasificaciones'
+          - 'Zod como fuente única de verdad: valida la respuesta del modelo y genera el JSON Schema'
