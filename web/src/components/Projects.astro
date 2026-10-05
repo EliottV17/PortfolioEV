@@ -2,237 +2,31 @@
 import { useTranslations, defaultLang } from '../i18n/ui';
 import TsIcon from '../assets/icons/typescript.svg';
 import GoIcon from '../assets/icons/go.svg';
+import { getProjects } from '../lib/projects';
 
 interface Props {
   lang?: 'en' | 'es';
 }
 
+interface Project {
+  id: string;
+  name: string;
+  url: string;
+  videoUrl?: string;
+  webUrl?: string;
+  filename?: string;
+  detail: string;
+  stack: string;
+  color: string;
+  techIcon?: string;
+  diagram?: string;
+  highlights?: string[];
+}
+
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
-const projects = [
-  {
-    id: 'sentinel',
-    name: 'Sentinel',
-    url: 'https://github.com/EliottV17/sentinel-project',
-    videoUrl: 'https://youtu.be/0To4e1rmMRM',
-    webUrl: 'https://sentinel.eliottvelarde.com/status',
-    detail: t('projects.sentinel.detail'),
-    stack:
-      'TypeScript · Go · NestJS · Postgres · PrismaORM · JWT · CI/CD · Jest',
-    color: 'red',
-    techIcon: 'go',
-    diagram: `
-       ┌────────────────────────┐
-       │ Browser / React Client │
-       └───────────┬────────────┘
-                   │ HTTPS
-                   ▼
-     ┌─────────────┴────────────────┐
-     │     Caddy reverse proxy      │
-     │      (production edge)       │
-     └──┬────────────────────┬──────┘
-        │ other paths        │ /api/* (direct)
-        ▼                    ▼
- ┌─────────────┐   ┌───────────────────┐
- │ Nginx (UI)  │   │  NestJS REST API  │
- │ static SPA  │   │ (JWT auth & CRUD) │
- └─────────────┘   └─────────┬─────────┘
-                             │ Prisma queries
-                             ▼
-                   ┌───────────────────┐
-                   │   PostgreSQL 17   │
-                   │  (shared schema)  │
-                   └─────────▲─────────┘
-                             │ pgx: due monitors
-                             │ & check results
-                   ┌─────────┴─────────┐
-                   │  Go poller worker │
-                   │ (checker registry)│
-                   └─────────┬─────────┘
-                             │ SSRF-filtered
-                             │ HTTP/S requests
-                             ▼
-                   ┌───────────────────┐
-                   │ Configured HTTP / │
-                   │   HTTPS targets   │
-                   └───────────────────┘
-`,
-    highlights: [
-      t('projects.sentinel.highlight1'),
-      t('projects.sentinel.highlight2'),
-    ],
-  },
-  {
-    id: 'gymBuddy',
-    name: 'Gym Buddy',
-    url: 'https://github.com/EliottV17/Gym-Buddy-App',
-    detail: t('projects.gymBuddy.detail'),
-    stack: 'TypeScript · NestJS · Postgres · TypeORM · PostGIS · JWT',
-    color: 'blue',
-    techIcon: 'ts',
-    diagram: `
-     ┌───────────────┐   ┌────────────┐
-     │ User register │   │ User login │
-     └───────┬───────┘   └──────┬─────┘
-             └─────────┬────────┘
-                       ▼
-              ┌─────────────────┐
-              │ Issue JWT token │
-              └────────┬────────┘
-                       │
-                       ▼
-           ┌───────────────────────┐
-           │ Setup profile and GPS │
-           │       location        │
-           └───────────┬───────────┘
-                       │
-                       ▼
-         ┌──────────────────────────┐
-         │ Fetch nearby suggestions │
-         │       via PostGIS        │
-         └─────────────┬────────────┘
-                       │
-                       ▼
-             ┌───────────────────┐
-             │ Render swipe card │◄───────────┐
-             └─────────┬─────────┘            │
-                       │                      │
-                       ▼                      │
-           ┌───────────────────────┐          │
-           │ Swipe action: LIKE or │          │
-           │         PASS          │          │
-           └───────────┬───────────┘          │
-                       │                      │
-                       ▼                      │
-          ┌────────────────────────┐          │
-          │ Save swipe in database │          │
-          └────────────┬───────────┘          │
-                       │                      │
-                       ▼                      │
-               ╭──────────────╮               │
-               │ Mutual LIKE? │               │
-               ╰───────┬──────╯               │
-           ┌───────────┴───────────┐          │
-           ▼No                     ▼Yes       │
- ┌─────────────────┐  ┌─────────────────────┐ │
- │ Advance to next │  │ Create match record │ │
- │    candidate    ├──┴──────────┬──────────┘─┘
- └─────────────────┘             │
-                       ┌─────────┘
-                       ▼
-            ┌──────────────────────┐
-            │ Trigger match banner │
-            └──────────┬───────────┘
-                       │
-                       ▼
-                ┌──────────────┐
-                │ List matches │
-                └──────┬───────┘
-                       │
-                       ▼
-              ┌──────────────────┐
-              │ Open chat thread ├─────┐
-              └────────┬─────────┘     │
-                       │               │
-                       ▼               │
-              ┌───────────────────┐    │
-              │ Send chat message │    │
-              └────────┬──────────┘    │
-                       │               │
-                       ▼               │
-          ┌──────────────────────────┐ │
-          │ Save message in database │ │
-          └────────────┬─────────────┘ │
-                       │               │
-                       ▼               │
-           ┌────────────────────────┐  │
-           │ Poll messages every 5s │◄─┘
-           └───────────┬────────────┘
-                       │
-                       ▼
-             ┌─────────────────────┐
-             │ Render message list │
-             └─────────────────────┘
-`,
-    highlights: [
-      t('projects.gymBuddy.highlight1'),
-      t('projects.gymBuddy.highlight2'),
-    ],
-  },
-  {
-    id: 'tenantInbox',
-    name: 'TenantInbox',
-    url: 'https://github.com/EliottV17/TenantInbox',
-    webUrl: 'https://tenant-inbox-ten.vercel.app/inbox',
-    filename: 'tenantinbox.ts',
-    detail: t('projects.tenantInbox.detail'),
-    stack:
-      'Next.js (App Router) · TypeScript · Convex · OpenRouter (GLM-5.3-flash) · Zod 4 · Tailwind CSS v4 · shadcn/ui · Bun · Vitest',
-    color: 'green',
-    techIcon: 'ts',
-    diagram: `
-┌─────────────────┐   ┌─────────────────┐
-│   Inbox form    │   │  POST webhook   │
-└────────┬────────┘   └────────┬────────┘
-         │                     │
-         ▼                     ▼
-┌─────────────────┐   ┌─────────────────┐
-│ Create mutation │   │ Webhook handler │
-└────────┬────────┘   └────────┬────────┘
-         └──────────┬──────────┘
-                    ▼
-        ┌───────────────────────┐
-        │   Save message: new   │
-        └───────────┬───────────┘
-                    │
-                    ▼
-       ┌─────────────────────────┐
-       │ Schedule classification │
-       └────────────┬────────────┘
-                    │
-                    ▼
-        ┌───────────────────────┐
-        │ Classification action │
-        └───────────┬───────────┘
-                    │
-                    ▼
-         ┌─────────────────────┐
-         │ State + usage guard │
-         └──────────┬──────────┘
-                    │
-                    ▼
-    ┌───────────────────────────────┐
-    │ OpenRouter structured output  │
-    └───────────────┬───────────────┘
-                    │
-                    ▼
-   ┌─────────────────────────────────┐
-   │ Parse JSON + validate with Zod  │
-   └─────┬─────────────────────┬─────┘
-         │                     │
-         ▼                     ▼
-  ┌─────────────┐       ┌─────────────┐
-  │ Save result │       │ Mark failed │
-  └──────┬──────┘       └──────┬──────┘
-         └──────────┬──────────┘
-                    ▼
-           ┌─────────────────┐
-           │ Reactive inbox  │
-           └────────┬────────┘
-                    │
-                    ▼
-       ┌─────────────────────────┐
-       │ Human reviews and acts  │
-       └─────────────────────────┘
-`,
-    highlights: [
-      t('projects.tenantInbox.highlight1'),
-      t('projects.tenantInbox.highlight2'),
-      t('projects.tenantInbox.highlight3'),
-    ],
-  },
-];
+const projects: Project[] = getProjects(lang);
 
 const VISIBLE_PROJECTS = 3;
 const visibleProjects = projects.slice(0, VISIBLE_PROJECTS);
