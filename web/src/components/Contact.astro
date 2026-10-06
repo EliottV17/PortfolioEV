@@ -1,5 +1,6 @@
 ---
 import { useTranslations, defaultLang } from '../i18n/ui';
+import { getContact } from '../lib/contact';
 import LinkedInIcon from '../assets/icons/linkedin.svg';
 import GitHubIcon from '../assets/icons/github.svg';
 
@@ -9,6 +10,9 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
+const contact = getContact(lang);
+const englishResume = getContact('en').resume;
+const spanishResume = getContact('es').resume;
 ---
 
 <section class="pane pane-contact" aria-labelledby="contact-title">
@@ -21,30 +25,30 @@ const t = useTranslations(lang);
   <div class="contact-grid">
     <div class="contact-primary">
       <p class="contact-copy">
-        {t('contact.copy')}
+        {contact.copy}
       </p>
-      <a class="contact-link" href="mailto:contact@eliottvelarde.com">
-        contact@eliottvelarde.com <span>↗</span>
+      <a class="contact-link" href={`mailto:${contact.email}`}>
+        {contact.email} <span>↗</span>
       </a>
     </div>
 
     <div class="contact-socials">
       <span class="category-label">{t('contact.network')}</span>
       <a
-        href="https://www.linkedin.com/in/eliott-velarde/"
+        href={contact.socials.linkedin.url}
         target="_blank"
         rel="noopener noreferrer"
       >
         <LinkedInIcon />
-        LinkedIn ↗
+        {contact.socials.linkedin.name} ↗
       </a>
       <a
-        href="https://github.com/EliottV17"
+        href={contact.socials.github.url}
         target="_blank"
         rel="noopener noreferrer"
       >
         <GitHubIcon />
-        GitHub ↗
+        {contact.socials.github.name} ↗
       </a>
     </div>
 
@@ -52,16 +56,16 @@ const t = useTranslations(lang);
       <span class="category-label">{t('contact.sysInfo')}</span>
       <p class="sys-info">
         <span>{t('contact.locationLabel')}</span>
-        {t('contact.locationValue')}
+        {contact.location}
       </p>
       <p class="sys-info">
         <span>{t('contact.statusLabel')}</span>
-        {t('contact.statusValue')}
+        {contact.status}
       </p>
       <div class="cli-box">
         <a
-          href="/Eliott_Velarde_CV_EN.pdf"
-          download="Eliott_Velarde_CV_EN.pdf"
+          href={englishResume.path}
+          download={englishResume.filename}
           rel="noopener noreferrer"
           class="terminal-line"
           title={t('contact.cvEnTitle')}
@@ -70,8 +74,8 @@ const t = useTranslations(lang);
           ↗ ]
         </a>
         <a
-          href="/Eliott_Velarde_CV_ES.pdf"
-          download="Eliott_Velarde_CV_ES.pdf"
+          href={spanishResume.path}
+          download={spanishResume.filename}
           hreflang="es"
           rel="noopener noreferrer"
           class="terminal-line"
