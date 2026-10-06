@@ -33,14 +33,10 @@ export const ui = {
     'telescope.diagram.aria': 'Architecture diagram',
     'telescope.diagram.project.aria': '{name} architecture diagram',
 
-    'contact.copy':
-      "Do you have a project in mind or are you looking for a software developer? Let's talk.",
     'contact.network': 'Network',
     'contact.sysInfo': 'System Info',
     'contact.locationLabel': 'Location:',
-    'contact.locationValue': 'Lima, Peru (UTC-5)',
     'contact.statusLabel': 'Status:',
-    'contact.statusValue': 'Open to new projects',
     'contact.cvEnTitle': 'Download English Resume',
     'contact.cvEsTitle': 'Download Spanish Resume',
   },
@@ -76,14 +72,10 @@ export const ui = {
     'telescope.diagram.aria': 'Diagrama de arquitectura',
     'telescope.diagram.project.aria': 'Diagrama de arquitectura de {name}',
 
-    'contact.copy':
-      '¿Tienes un proyecto en mente o buscas un software developer? Hablemos.',
     'contact.network': 'Redes',
     'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
-    'contact.locationValue': 'Lima, Perú (UTC-5)',
     'contact.statusLabel': 'Estado:',
-    'contact.statusValue': 'Abierto a nuevos proyectos',
     'contact.cvEnTitle': 'Descargar CV en inglés',
     'contact.cvEsTitle': 'Descargar CV en español',
   },

@@ -1,0 +1,26 @@
+email: contact@eliottvelarde.com
+socials:
+  linkedin:
+    id: linkedin
+    name: LinkedIn
+    url: https://www.linkedin.com/in/eliott-velarde/
+  github:
+    id: github
+    name: GitHub
+    url: https://github.com/EliottV17
+content:
+  en:
+    copy: "Do you have a project in mind or are you looking for a software developer? Let's talk."
+    location: "Lima, Peru (UTC-5)"
+    status: Open to new projects
+  es:
+    copy: "¿Tienes un proyecto en mente o buscas un software developer? Hablemos."
+    location: "Lima, Perú (UTC-5)"
+    status: Abierto a nuevos proyectos
+resumes:
+  en:
+    path: /Eliott_Velarde_CV_EN.pdf
+    filename: Eliott_Velarde_CV_EN.pdf
+  es:
+    path: /Eliott_Velarde_CV_ES.pdf
+    filename: Eliott_Velarde_CV_ES.pdf
