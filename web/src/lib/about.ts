@@ -21,5 +21,8 @@ interface AboutContent {
 const aboutContent = parse(aboutYaml) as AboutContent;
 
 export function getAbout(locale: AboutLocale) {
-  return aboutContent.profile.content[locale];
+  return {
+    name: aboutContent.profile.name,
+    ...aboutContent.profile.content[locale],
+  };
 }

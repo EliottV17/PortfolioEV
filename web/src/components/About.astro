@@ -9,6 +9,7 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 const about = getAbout(lang);
+const [firstName, ...surname] = about.name.split(' ');
 ---
 
 <section class="pane pane-about" aria-labelledby="about-title">
@@ -22,7 +23,7 @@ const about = getAbout(lang);
     <pre
       class="ascii-avatar"
       role="img"
-      aria-label="ASCII art portrait of Eliott Velarde">
+      aria-label={`ASCII art portrait of ${about.name}`}>
           _____                    _____          
          /\    \                  /\    \         
         /::\    \                /::\____\        
@@ -48,7 +49,7 @@ const about = getAbout(lang);
               </pre>
     <div>
       <p class="eyebrow">{about.eyebrow}</p>
-      <h1>Eliott<br /><em>Velarde</em></h1>
+      <h1>{firstName}<br /><em>{surname.join(' ')}</em></h1>
       <p class="role">
         {about.role}<span class="cursor"></span>
       </p>
