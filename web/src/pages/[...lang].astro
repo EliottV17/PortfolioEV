@@ -9,14 +9,14 @@ import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
-import { useTranslations } from '../i18n/ui';
+import { defaultLang, useTranslations } from '../i18n/ui';
 
 export function getStaticPaths() {
   return [{ params: { lang: undefined } }, { params: { lang: 'es' } }];
 }
 
 const { lang } = Astro.params;
-const currentLang = lang === 'es' ? 'es' : 'en';
+const currentLang = lang === 'es' ? 'es' : defaultLang;
 const t = useTranslations(currentLang);
 ---
 
