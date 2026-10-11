@@ -7,13 +7,12 @@ projects:
       web: https://sentinel.eliottvelarde.com/status
     stack:
       - TypeScript
-      - Go
       - NestJS
-      - Postgres
-      - PrismaORM
-      - JWT
-      - CI/CD
-      - Jest
+      - Go
+      - PostgreSQL
+      - React
+      - Docker
+      - AWS EC2
     color: red
     techIcon: go
     diagram: |1
@@ -54,15 +53,13 @@ projects:
                         └───────────────────┘
     content:
       en:
-        detail: 'Distributed uptime and latency monitoring platform (NestJS + Go). Benchmarked to process 5,000 concurrent services using <50MB RAM and a strictly bounded 25-connection DB pool. Features FSM-based alerting to reduce notification noise by 99%.'
+        detail: 'Sentinel is a distributed monitoring platform with a NestJS API and an independent Go worker for checking configured targets. I built it with production reliability and security in mind, and deployed it on AWS.'
         highlights:
-          - 'Decoupled runtimes: Go worker (pgx pool) + NestJS REST API'
-          - 'Pluggable checker registry: new probe protocols without touching the polling loop'
+          - 'Independent Go worker for distributed monitoring'
       es:
-        detail: 'Plataforma distribuida de monitoreo de disponibilidad y latencia (NestJS + Go). Validada procesando 5,000 servicios concurrentes con <50MB de RAM y un pool acotado de 25 conexiones a BD. Incluye alertas por máquina de estados (FSM) que reducen el ruido operativo en un 99%.'
+        detail: 'Sentinel es una plataforma distribuida de monitoreo con una API NestJS y un worker independiente en Go para verificar destinos configurados. La desarrollé considerando la confiabilidad y seguridad en producción, y la desplegué en AWS.'
         highlights:
-          - 'Runtimes desacoplados: worker en Go (pool pgx) + API REST en NestJS'
-          - 'Registry de checkers: nuevos protocolos de sondeo sin tocar el loop de polling'
+          - 'Worker Go independiente para monitoreo distribuido'
   - id: gymBuddy
     name: Gym Buddy
     links:
@@ -255,3 +252,19 @@ projects:
           - 'Pipeline como máquina de estados: transiciones idempotentes (new → classifying → classified | failed)'
           - 'Webhook con secreto compartido y comparación en tiempo constante; tope diario de clasificaciones'
           - 'Zod como fuente única de verdad: valida la respuesta del modelo y genera el JSON Schema'
+  - id: inteldigest
+    name: IntelDigest
+    links: {}
+    stack:
+      - Go
+      - PostgreSQL
+      - Redis
+      - OpenRouter
+    color: blue
+    techIcon: go
+    filename: inteldigest.go
+    content:
+      en:
+        detail: 'Article ingestion and analysis engine (July 2026–present). An asynchronous Go service accepts analysis requests with HTTP 202 Accepted while a separate worker processes jobs using PostgreSQL and Redis. OpenRouter LLM output is validated against typed Go structs before persistence.'
+      es:
+        detail: 'Motor de ingesta y análisis de artículos (julio de 2026–presente). Un servicio asíncrono en Go acepta solicitudes de análisis con HTTP 202 Accepted mientras un worker independiente procesa trabajos con PostgreSQL y Redis. La salida del LLM de OpenRouter se valida con estructuras tipadas de Go antes de persistirla.'

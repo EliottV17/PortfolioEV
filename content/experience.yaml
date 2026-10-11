@@ -1,28 +1,28 @@
 experiences:
   - content:
       en:
-        date: "2026 — now"
-        role: "Independent · Software Developer"
-        description: "Developing personal and freelance backend projects, focusing on API design, database management, and asynchronous tasks."
+        date: "January 2026 — Present"
+        role: "Personal Projects · Backend Development"
+        description: "I build backend services with TypeScript and Go, applying REST APIs, asynchronous processing, and deployment in personal projects such as Sentinel and IntelDigest."
       es:
-        date: "2026 — presente"
-        role: "Independiente · Software Developer"
-        description: "Desarrollo de proyectos personales y freelance de backend, enfocado en el diseño de APIs, gestión de bases de datos y tareas asíncronas."
+        date: "Enero 2026 — Presente"
+        role: "Proyectos propios · Desarrollo Backend"
+        description: "Desarrollo servicios backend con TypeScript y Go, aplicando APIs REST, procesamiento asíncrono y despliegue en proyectos propios como Sentinel e IntelDigest."
   - content:
       en:
-        date: "April 2026 — August 2026"
-        role: "Meevent PE · Backend Developer (Project Collaborator)"
-        description: "Optimized server-side logic and service architecture, reducing API response times by 30% and implementing automated tests to ensure system stability."
+        date: "April 2026 — July 2026"
+        role: "Meevent · Backend Developer (Project Collaborator)"
+        description: "Collaborated on a Java and Spring Boot backend, improving API documentation, integration testing, and error handling to make frontend integration more reliable."
       es:
-        date: "Abril 2026 — Agosto 2026"
-        role: "Meevent PE · Desarrollador Backend (Colaborador)"
-        description: "Optimización de la lógica del servidor y arquitectura de servicios, reduciendo los tiempos de respuesta de la API en un 30% e implementando pruebas automatizadas para asegurar la estabilidad del sistema."
+        date: "Abril 2026 — Julio 2026"
+        role: "Meevent · Desarrollador Backend (Colaborador de proyecto)"
+        description: "Colaboré en un backend con Java y Spring Boot, mejorando la documentación de la API, las pruebas de integración y el manejo de errores para facilitar una integración más confiable con el frontend."
   - content:
       en:
         date: "July 2025 — December 2025"
-        role: "Simply Technologies MX · Frontend Developer (Intern)"
-        description: "Built responsive web interfaces and maintained reusable UI components using React, TypeScript, and modern state management."
+        role: "SimplyTechnologies · Frontend Developer (Intern)"
+        description: "Helped modernize Routeiq’s interface with React and TypeScript, turning Figma designs into components and coordinating API integration with an international remote team."
       es:
         date: "Julio 2025 — Diciembre 2025"
-        role: "Simply Technologies MX · Desarrollador Frontend (Practicante)"
-        description: "Desarrollo de interfaces web responsivas y mantenimiento de componentes de UI reutilizables utilizando React, TypeScript y gestión de estado moderna."
+        role: "SimplyTechnologies · Desarrollador Frontend (Practicante)"
+        description: "Contribuí a modernizar la interfaz de Routeiq con React y TypeScript, convirtiendo diseños de Figma en componentes y coordinando la integración con la API junto a un equipo remoto internacional."

@@ -10,13 +10,13 @@ socials:
     url: https://github.com/EliottV17
 content:
   en:
-    copy: "Do you have a project in mind or are you looking for a software developer? Let's talk."
+    copy: "I'm a backend-focused developer interested in opportunities to contribute to REST APIs and reliable services. I'd be glad to talk."
     location: "Lima, Peru (UTC-5)"
-    status: Open to new projects
+    status: Seeking opportunities
   es:
-    copy: "¿Tienes un proyecto en mente o buscas un software developer? Hablemos."
+    copy: "Soy desarrollador enfocado en backend y me interesan oportunidades para contribuir a APIs REST y servicios confiables. Me encantará conversar."
     location: "Lima, Perú (UTC-5)"
-    status: Abierto a nuevos proyectos
+    status: En búsqueda de oportunidades
 resumes:
   en:
     path: /Eliott_Velarde_CV_EN.pdf
