@@ -1,5 +1,5 @@
 const initScrollActivePane = () => {
-  const touchLayout = window.matchMedia('(hover: none) and (max-width: 1340px)');
+  const touchLayout = window.matchMedia('(hover: none) and (max-width: 1440px)');
   const panes = Array.from(document.querySelectorAll<HTMLElement>('.pane'));
   let observer: IntersectionObserver | undefined;
 
