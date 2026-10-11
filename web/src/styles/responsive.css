@@ -45,6 +45,16 @@
     overflow: visible;
   }
 
+  .pane-experience {
+    display: block;
+  }
+
+  .timeline {
+    flex: none;
+    min-height: auto;
+    overflow: visible;
+  }
+
   .ascii-avatar {
     font-size: 6px;
   }
@@ -119,10 +129,6 @@
     border-right: 0;
   }
 
-  .skill-categories {
-    height: auto;
-  }
-
   .status-bar {
     position: fixed;
     bottom: 0;
@@ -140,22 +146,6 @@
     border: none;
     border-top: none;
     z-index: 10002;
-  }
-}
-
-@media (max-width: 768px) {
-  .skill-categories {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 16px;
-    row-gap: 24px;
-    padding: 16px 14px 20px;
-    height: auto;
-  }
-
-  .skill-category {
-    padding: 0;
-    border-bottom: 0;
   }
 }
 
@@ -228,6 +218,26 @@
   .contact-socials {
     border-right: 0;
     border-bottom: 0;
+  }
+
+  .pane-skills {
+    min-height: 0;
+  }
+
+  .skill-categories {
+    flex: none;
+    overflow: visible;
+    padding: 4px 16px 16px;
+  }
+
+  .skill-category {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+    padding: 8px 0;
+  }
+
+  .skills-prompt {
+    padding: 14px 16px 6px;
   }
 
   .pane-contact {

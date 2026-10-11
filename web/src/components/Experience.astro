@@ -17,7 +17,7 @@ const experiences = getExperience(lang);
     <span id="experience-title">{t('nav.experience')}</span>
     <span class="pane-mark">▾</span>
   </div>
-  <div class="timeline">
+  <div class="timeline" tabindex="0">
     {experiences.map((experience, index) => (
       <article class={`timeline-item${index === 0 ? ' current' : ''}`}>
         <span class="timeline-dot"></span>

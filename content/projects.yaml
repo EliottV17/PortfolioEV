@@ -158,12 +158,12 @@ projects:
                   └─────────────────────┘
     content:
       en:
-        detail: 'Engineered a high-performance matching engine utilizing PostGIS to resolve and optimize complex geospatial queries for low-latency proximity searches.'
+        detail: 'Built a geospatial matching engine using PostGIS for distance-based discovery and race-safe user matching.'
         highlights:
           - 'Geospatial discovery: ordered by real distance with PostGIS ST_Distance, excluding already-swiped users'
           - 'Race-safe matching: composite unique indexes on swipes and matches, duplicate swipes handled via 409'
       es:
-        detail: 'Motor de emparejamiento de alto rendimiento que utiliza PostGIS para resolver y optimizar consultas geoespaciales complejas en búsquedas por proximidad de baja latencia.'
+        detail: 'Desarrollo de un motor de emparejamiento geoespacial con PostGIS para la localización por cercanía y la asignación simultánea de usuarios sin conflictos de concurrencia'
         highlights:
           - 'Descubrimiento geoespacial: orden por distancia real con ST_Distance de PostGIS, excluyendo usuarios ya swipeados'
           - 'Matching seguro ante concurrencia: índices únicos compuestos en swipes y matches, swipes duplicados resueltos con 409'

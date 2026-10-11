@@ -26,7 +26,7 @@
   min-height: 0;
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
-  grid-template-rows: 1fr 0.92fr;
+  grid-template-rows: 1.3fr 1fr;
 }
 
 .pane {
@@ -73,6 +73,12 @@
 .pane-experience {
   grid-column: 2;
   grid-row: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-experience > .pane-heading {
+  flex-shrink: 0;
 }
 
 .pane-projects {
@@ -93,6 +99,15 @@
 }
 
 @media (min-width: 1441px) {
+  .pane-about {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pane-about > .pane-heading {
+    flex-shrink: 0;
+  }
+
   .pane-skills {
     border-bottom: 0;
   }

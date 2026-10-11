@@ -28,7 +28,8 @@ const spanishResume = getContact('es').resume;
         {contact.copy}
       </p>
       <a class="contact-link" href={`mailto:${contact.email}`}>
-        {contact.email} <span>↗</span>
+        {contact.email}
+        <span>↗</span>
       </a>
     </div>
 
@@ -53,15 +54,6 @@ const spanishResume = getContact('es').resume;
     </div>
 
     <div class="contact-terminal">
-      <span class="category-label">{t('contact.sysInfo')}</span>
-      <p class="sys-info">
-        <span>{t('contact.locationLabel')}</span>
-        {contact.location}
-      </p>
-      <p class="sys-info">
-        <span>{t('contact.statusLabel')}</span>
-        {contact.status}
-      </p>
       <div class="cli-box">
         <a
           href={englishResume.path}
