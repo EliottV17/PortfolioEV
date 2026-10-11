@@ -1,57 +1,76 @@
 skills:
-  - category: Stack
+  - category:
+      en: Backend
+      es: Backend
     groups:
-      - name: Go
+      - name: Technologies
         items:
-          - net/http
-          - pgx
-          - testing
-          - log/slog
-      - name: TypeScript
-        items:
+          - Go
           - NestJS
           - Express
+  - category:
+      en: Frontend
+      es: Frontend
+    groups:
+      - name: Technologies
+        items:
           - React
   - category:
-      en: Databases
-      es: Bases de datos
+      en: Data
+      es: Datos
     groups:
-      - name: SQL
+      - name: Technologies
         items:
           - PostgreSQL
-          - MySQL
-          - SQL Server
-      - name: NoSQL
-        items:
-          - MongoDB
           - Redis
+          - MySQL
   - category:
-      en: APIs & Architecture
-      es: APIs y arquitectura
+      en: Infrastructure
+      es: Infraestructura
     groups:
-      - name: APIs
-        items:
-          - REST APIs
-          - API Gateway
-          - JWT
-      - name:
-          en: Architecture
-          es: Arquitectura
-        items:
-          - en: Microservices
-            es: Microservicios
-          - Hexagonal Arch.
-          - TDD
-  - category: Cloud & DevOps
-    groups:
-      - name: Cloud
+      - name: Technologies
         items:
           - Docker
-          - AWS (IAM, EC2)
-          - CI/CD
-      - name:
-          en: Tools
-          es: Herramientas
+          - Docker Compose
+          - AWS EC2
+          - Caddy
+          - Ubuntu
+          - GitHub Actions
+  - category:
+      en: Testing
+      es: Pruebas
+    groups:
+      - name: Technologies
+        items:
+          - Go testing
+          - Jest
+          - Testcontainers
+  - category:
+      en: Practices
+      es: Prácticas
+    groups:
+      - name: Applied practices
+        items:
+          - REST
+          - JWT
+          - Rate limiting
+          - SSRF mitigation
+          - OpenAPI
+          - Bounded concurrency
+  - category:
+      en: Languages
+      es: Lenguajes
+    groups:
+      - name: Technologies
+        items:
+          - Go
+          - TypeScript
+          - JavaScript
+          - SQL
+  - category:
+      en: Tools
+      es: Herramientas
+    groups:
+      - name: Technologies
         items:
           - Git
-          - GitHub Actions

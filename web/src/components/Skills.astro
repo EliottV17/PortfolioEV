@@ -17,23 +17,26 @@ const skills = getSkills(lang);
     <span id="skills-title">{t('nav.skills')}</span>
     <span class="pane-mark">▾</span>
   </div>
-  <div class="skill-categories">
-    {skills.map((category) => (
-      <div class="skill-category">
-        <span class="category-label">{category.category}</span>
-        {category.groups.map((group) => (
-          <div class="skill-block">
-            <div class="skill-group-title">
-              <span class="tree-marker">&gt;</span> {group.name}
-            </div>
-            <ul class="skill-list">
-              {group.items.map((item) => (
-                <li class="skill-item">{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    ))}
-  </div>
+  <p
+    class="skills-prompt"
+    aria-label={lang === 'es'
+      ? 'Listado del directorio de habilidades'
+      : 'Skills directory listing'}
+  >
+    $ ls ~/skills
+  </p>
+  <ul class="skill-categories">
+    {
+      skills.map((category) => (
+        <li class="skill-category">
+          <h3 class="category-label">{category.category.toLowerCase()}/</h3>
+          <ul class="skill-list">
+            {category.groups.flatMap((group) =>
+              group.items.map((item) => <li class="skill-item">{item}</li>),
+            )}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
 </section>

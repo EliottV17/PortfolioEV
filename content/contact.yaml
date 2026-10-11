@@ -10,11 +10,11 @@ socials:
     url: https://github.com/EliottV17
 content:
   en:
-    copy: "I'm a backend-focused developer interested in opportunities to contribute to REST APIs and reliable services. I'd be glad to talk."
+    copy: "Building a team, working on an interesting system, or have a project in mind? Let's talk."
     location: "Lima, Peru (UTC-5)"
     status: Seeking opportunities
   es:
-    copy: "Soy desarrollador enfocado en backend y me interesan oportunidades para contribuir a APIs REST y servicios confiables. Me encantará conversar."
+    copy: "¿Estás formando un equipo, trabajando en un sistema interesante o tienes un proyecto en mente? Hablemos."
     location: "Lima, Perú (UTC-5)"
     status: En búsqueda de oportunidades
 resumes:
