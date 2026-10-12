@@ -449,7 +449,7 @@ a.terminal-line:hover {
 
 .skill-category {
   display: grid;
-  grid-template-columns: minmax(7rem, 8rem) minmax(0, 1fr);
+  grid-template-columns: 8rem minmax(0, 1fr);
   align-items: baseline;
   gap: 12px;
   min-width: 0;
@@ -464,7 +464,7 @@ a.terminal-line:hover {
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 
 .skill-list {

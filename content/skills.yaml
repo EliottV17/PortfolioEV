@@ -1,29 +1,33 @@
 skills:
   - category:
+      en: Languages
+      es: Lenguajes
+    groups:
+      - name: Technologies
+        items:
+          - TypeScript
+          - Go
+          - JavaScript
+          - SQL
+  - category:
       en: Backend
       es: Backend
     groups:
       - name: Technologies
         items:
-          - Go
           - NestJS
           - Express
+          - REST APIs
+          - OpenAPI
   - category:
-      en: Frontend
-      es: Frontend
-    groups:
-      - name: Technologies
-        items:
-          - React
-  - category:
-      en: Data
-      es: Datos
+      en: Databases
+      es: Bases de datos
     groups:
       - name: Technologies
         items:
           - PostgreSQL
           - Redis
-          - MySQL
+          - MongoDB
   - category:
       en: Infrastructure
       es: Infraestructura
@@ -34,7 +38,7 @@ skills:
           - Docker Compose
           - AWS EC2
           - Caddy
-          - Ubuntu
+          - Linux
           - GitHub Actions
   - category:
       en: Testing
@@ -42,35 +46,16 @@ skills:
     groups:
       - name: Technologies
         items:
-          - Go testing
           - Jest
+          - Go testing
           - Testcontainers
   - category:
-      en: Practices
-      es: Prácticas
+      en: Engineering
+      es: Ingeniería
     groups:
       - name: Applied practices
         items:
-          - REST
           - JWT
           - Rate limiting
           - SSRF mitigation
-          - OpenAPI
           - Bounded concurrency
-  - category:
-      en: Languages
-      es: Lenguajes
-    groups:
-      - name: Technologies
-        items:
-          - Go
-          - TypeScript
-          - JavaScript
-          - SQL
-  - category:
-      en: Tools
-      es: Herramientas
-    groups:
-      - name: Technologies
-        items:
-          - Git
