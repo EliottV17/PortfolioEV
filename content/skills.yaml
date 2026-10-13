@@ -15,10 +15,21 @@ skills:
     groups:
       - name: Technologies
         items:
+          - Node.js
           - NestJS
           - Express
           - REST APIs
           - OpenAPI
+  - category:
+      en: Frontend
+      es: Frontend
+    groups:
+      - name: Technologies
+        items:
+          - React
+          - Next.js
+          - Tailwind CSS
+          - shadcn/ui
   - category:
       en: Databases
       es: Bases de datos

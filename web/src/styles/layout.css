@@ -99,6 +99,10 @@
 }
 
 @media (min-width: 1441px) {
+  .workspace {
+    grid-template-rows: 1.4fr 1fr;
+  }
+
   .pane-about {
     display: flex;
     flex-direction: column;

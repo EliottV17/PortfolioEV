@@ -10,7 +10,7 @@ export const ui = {
     'nav.projects': 'projects',
     'nav.skills': 'skills',
     'nav.contact': 'contact',
-        'projects.project4.detail':
+    'projects.project4.detail':
       'Cloud-native API gateway and telemetry pipeline featuring automated tracing, rate limiting, and zero-downtime blue/green deployment orchestration.',
     'projects.more.singular': '[ +1 more · open :telescope ]',
     'projects.more.plural': '[ +{count} more · open :telescope ]',
@@ -34,11 +34,15 @@ export const ui = {
     'telescope.diagram.project.aria': '{name} architecture diagram',
 
     'contact.network': 'Network',
+    'contact.emailLabel': 'Email',
+    'contact.resumeLabel': 'Resume',
     'contact.sysInfo': 'System Info',
     'contact.locationLabel': 'Location:',
     'contact.statusLabel': 'Status:',
     'contact.cvEnTitle': 'Download English Resume',
     'contact.cvEsTitle': 'Download Spanish Resume',
+    'contact.cvEnDownload': 'download ↓',
+    'contact.cvEsDownload': 'download ↓',
   },
   es: {
     'page.title': 'Eliott Velarde — Desarrollador de Software',
@@ -49,7 +53,7 @@ export const ui = {
     'nav.projects': 'proyectos',
     'nav.skills': 'habilidades',
     'nav.contact': 'contacto',
-        'projects.project4.detail':
+    'projects.project4.detail':
       'API gateway cloud-native y pipeline de telemetría con trazabilidad distribuida automatizada, rate limiting y despliegues blue/green sin interrupciones.',
     'projects.more.singular': '[ +1 más · abrir :telescope ]',
     'projects.more.plural': '[ +{count} más · abrir :telescope ]',
@@ -73,11 +77,15 @@ export const ui = {
     'telescope.diagram.project.aria': 'Diagrama de arquitectura de {name}',
 
     'contact.network': 'Redes',
+    'contact.emailLabel': 'Correo',
+    'contact.resumeLabel': 'CV',
     'contact.sysInfo': 'Información del sistema',
     'contact.locationLabel': 'Ubicación:',
     'contact.statusLabel': 'Estado:',
     'contact.cvEnTitle': 'Descargar CV en inglés',
     'contact.cvEsTitle': 'Descargar CV en español',
+    'contact.cvEnDownload': 'descargar ↓',
+    'contact.cvEsDownload': 'descargar ↓',
   },
 } as const;
 export function useTranslations(lang: keyof typeof ui) {

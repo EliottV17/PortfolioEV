@@ -17,6 +17,10 @@
   border-bottom: 0;
 }
 
+.contact-primary .category-label {
+  display: block;
+}
+
 .contact-copy {
   margin: 0 0 12px;
   color: var(--text-secondary);
@@ -75,28 +79,60 @@
 .cli-box {
   flex: none;
   width: 100%;
+  min-width: 0;
   padding: 12px 14px;
   background: var(--color-background);
   border: 1px solid var(--color-border);
+}
+
+.cv-prompt {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-size: 10px;
+}
+
+.cv-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-list li {
+  min-width: 0;
 }
 
 a.terminal-line {
-  width: fit-content;
-  text-decoration: none;
-  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
   color: var(--green);
   font-size: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
   transition: opacity 0.2s;
+}
+
+.cv-filename {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cv-download {
+  flex: 0 0 auto;
 }
 
 a.terminal-line:hover {
   opacity: 0.7;
+}
+
+a.terminal-line:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* About Section */

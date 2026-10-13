@@ -3,13 +3,13 @@ profile:
   content:
     en:
       eyebrow: "// hello, i'm"
-      role: "Software Developer | TypeScript & Go"
-      bio: "Backend-focused developer building REST APIs and concurrent services with TypeScript, NestJS, Go, and PostgreSQL. Interested in reliable data systems and backend architecture, with hands-on experience shipping monitoring services and automated tests. Open to backend development opportunities."
+      role: "Full Stack Developer | TypeScript, Go & React/Next.js"
+      bio: "Full Stack developer with a strong backend focus: building REST APIs and concurrent services with TypeScript, NestJS, Go, and PostgreSQL, alongside React and Next.js frontend knowledge. Open to backend and full-stack opportunities."
       location: "⌁ Lima, Peru"
       status: "◷ seeking opportunities"
     es:
       eyebrow: "// hola, soy"
-      role: "Desarrollador de Software | TypeScript y Go"
-      bio: "Desarrollador enfocado en backend, con experiencia creando APIs REST y servicios concurrentes con TypeScript, NestJS, Go y PostgreSQL. Me interesan la arquitectura backend y los sistemas de datos confiables; he publicado servicios de monitoreo y pruebas automatizadas. Estoy abierto a oportunidades en desarrollo backend."
+      role: "Desarrollador Full Stack | TypeScript, Go y React/Next.js"
+      bio: "Desarrollador Full Stack con fuerte enfoque en backend: construyo APIs REST y servicios concurrentes con TypeScript, NestJS, Go y PostgreSQL, además de conocimientos frontend con React y Next.js. Abierto a oportunidades de backend y desarrollo full stack."
       location: "⌁ Lima, Perú"
       status: "◷ en búsqueda de oportunidades"

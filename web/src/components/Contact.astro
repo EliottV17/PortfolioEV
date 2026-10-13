@@ -55,27 +55,35 @@ const spanishResume = getContact('es').resume;
 
     <div class="contact-terminal">
       <div class="cli-box">
-        <a
-          href={englishResume.path}
-          download={englishResume.filename}
-          rel="noopener noreferrer"
-          class="terminal-line"
-          title={t('contact.cvEnTitle')}
-        >
-          <span class="prompt">$</span> curl -O eliottvelarde/cv-en.pdf [ Download
-          ↗ ]
-        </a>
-        <a
-          href={spanishResume.path}
-          download={spanishResume.filename}
-          hreflang="es"
-          rel="noopener noreferrer"
-          class="terminal-line"
-          title={t('contact.cvEsTitle')}
-        >
-          <span class="prompt">$</span> curl -O eliottvelarde/cv-es.pdf [ Download
-          ↗ ] <span class="cursor"></span>
-        </a>
+        <p class="cv-prompt">$ ls ~/cv</p>
+        <ul class="cv-list">
+          <li>
+            <a
+              href={englishResume.path}
+              download={englishResume.filename}
+              hreflang="en"
+              class="terminal-line"
+              title={t('contact.cvEnTitle')}
+              aria-label={`${englishResume.filename} — ${t('contact.cvEnDownload')}`}
+            >
+              <span class="cv-filename">{englishResume.filename}</span>
+              <span class="cv-download">[{t('contact.cvEnDownload')}]</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={spanishResume.path}
+              download={spanishResume.filename}
+              hreflang="es"
+              class="terminal-line"
+              title={t('contact.cvEsTitle')}
+              aria-label={`${spanishResume.filename} — ${t('contact.cvEsDownload')}`}
+            >
+              <span class="cv-filename">{spanishResume.filename}</span>
+              <span class="cv-download">[{t('contact.cvEsDownload')}]</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
