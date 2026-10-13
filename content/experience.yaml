@@ -2,12 +2,12 @@ experiences:
   - content:
       en:
         date: "January 2026 — Present"
-        role: "Personal Projects · Backend Development"
-        description: "I build backend services with TypeScript and Go, applying REST APIs, asynchronous processing, and deployment in personal projects such as Sentinel and IntelDigest."
+        role: "Personal Projects · Full Stack Developer"
+        description: "I build backend services with TypeScript and Go and frontend interfaces with React and Next.js for personal projects such as Sentinel and IntelDigest, which is still under development, combining REST APIs, asynchronous processing, and deployment with a strong backend focus."
       es:
         date: "Enero 2026 — Presente"
-        role: "Proyectos propios · Desarrollo Backend"
-        description: "Desarrollo servicios backend con TypeScript y Go, aplicando APIs REST, procesamiento asíncrono y despliegue en proyectos propios como Sentinel e IntelDigest."
+        role: "Proyectos propios · Desarrollador Full Stack"
+        description: "Desarrollo servicios backend con TypeScript y Go e interfaces frontend con React y Next.js para proyectos propios como Sentinel e IntelDigest, este último aún en construcción, combinando APIs REST, procesamiento asíncrono y despliegue con un fuerte enfoque en backend."
   - content:
       en:
         date: "April 2026 — July 2026"

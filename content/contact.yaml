@@ -19,8 +19,8 @@ content:
     status: En búsqueda de oportunidades
 resumes:
   en:
-    path: /Eliott_Velarde_CV_EN.pdf
-    filename: Eliott_Velarde_CV_EN.pdf
+    path: /FullStack_Eliott_Velarde_EN.pdf
+    filename: FullStack_Eliott_Velarde_EN.pdf
   es:
-    path: /Eliott_Velarde_CV_ES.pdf
-    filename: Eliott_Velarde_CV_ES.pdf
+    path: /FullStack_Eliott_Velarde_ES.pdf
+    filename: FullStack_Eliott_Velarde_ES.pdf
