@@ -3,8 +3,8 @@ profile:
   content:
     en:
       eyebrow: "// hello, i'm"
-      role: "Full Stack Developer | TypeScript, Go & React/Next.js"
-      bio: "Full Stack developer with a strong backend focus: building REST APIs and concurrent services with TypeScript, NestJS, Go, and PostgreSQL, alongside React and Next.js frontend knowledge. Open to backend and full-stack opportunities."
+      role: "Software Engineer | TypeScript, Go & React/Next.js"
+      bio: "Software Engineer with a strong backend focus: building REST APIs and concurrent services with TypeScript, NestJS, Go, and PostgreSQL, alongside React and Next.js frontend knowledge. Open to backend and full-stack opportunities."
       location: "⌁ Lima, Peru"
       status: "◷ seeking opportunities"
     es:
