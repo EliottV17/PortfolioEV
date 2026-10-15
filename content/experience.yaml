@@ -2,7 +2,7 @@ experiences:
   - content:
       en:
         date: "January 2026 — Present"
-        role: "Personal Projects · Full Stack Developer"
+        role: "Personal Projects · Software Engineer"
         description: "I build backend services with TypeScript and Go and frontend interfaces with React and Next.js for personal projects such as Sentinel and IntelDigest, which is still under development, combining REST APIs, asynchronous processing, and deployment with a strong backend focus."
       es:
         date: "Enero 2026 — Presente"
@@ -11,18 +11,18 @@ experiences:
   - content:
       en:
         date: "April 2026 — July 2026"
-        role: "Meevent · Backend Developer (Project Collaborator)"
+        role: "Meevent · Backend Engineer"
         description: "Collaborated on a Java and Spring Boot backend, improving API documentation, integration testing, and error handling to make frontend integration more reliable."
       es:
         date: "Abril 2026 — Julio 2026"
-        role: "Meevent · Desarrollador Backend (Colaborador de proyecto)"
+        role: "Meevent · Desarrollador Backend"
         description: "Colaboré en un backend con Java y Spring Boot, mejorando la documentación de la API, las pruebas de integración y el manejo de errores para facilitar una integración más confiable con el frontend."
   - content:
       en:
         date: "July 2025 — December 2025"
-        role: "SimplyTechnologies · Frontend Developer (Intern)"
+        role: "SimplyTechnologies · Frontend Engineer Intern"
         description: "Helped modernize Routeiq’s interface with React and TypeScript, turning Figma designs into components and coordinating API integration with an international remote team."
       es:
         date: "Julio 2025 — Diciembre 2025"
-        role: "SimplyTechnologies · Desarrollador Frontend (Practicante)"
+        role: "SimplyTechnologies · Practicante de Desarrollo Frontend"
         description: "Contribuí a modernizar la interfaz de Routeiq con React y TypeScript, convirtiendo diseños de Figma en componentes y coordinando la integración con la API junto a un equipo remoto internacional."
