@@ -6,9 +6,10 @@ skills:
       - name: Technologies
         items:
           - TypeScript
-          - Go
+          - Python
           - JavaScript
           - SQL
+          - Go
   - category:
       en: Backend
       es: Backend
@@ -16,10 +17,22 @@ skills:
       - name: Technologies
         items:
           - Node.js
+          - FastAPI
           - NestJS
           - Express
           - REST APIs
           - OpenAPI
+          - Pydantic
+  - category:
+      en: Applied AI
+      es: IA Aplicada
+    groups:
+      - name: Technologies
+        items:
+          - OpenRouter & LLMs APIs
+          - Structured Outputs
+          - Asynchronous Pipelines
+          - Human-in-the-Loop (HITL)
   - category:
       en: Frontend
       es: Frontend
@@ -37,8 +50,9 @@ skills:
       - name: Technologies
         items:
           - PostgreSQL
-          - Redis
+          - Redis (Streams & Cache)
           - MongoDB
+          - asyncpg
   - category:
       en: Infrastructure
       es: Infraestructura
@@ -51,15 +65,17 @@ skills:
           - Caddy
           - Linux
           - GitHub Actions
+          - uv
   - category:
       en: Testing
       es: Pruebas
     groups:
       - name: Technologies
         items:
+          - Pytest
           - Jest
-          - Go testing
           - Testcontainers
+          - Go testing
   - category:
       en: Engineering
       es: Ingeniería
@@ -70,3 +86,4 @@ skills:
           - Rate limiting
           - SSRF mitigation
           - Bounded concurrency
+          - Untrusted input boundary

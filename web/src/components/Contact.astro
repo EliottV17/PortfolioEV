@@ -11,8 +11,10 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 const contact = getContact(lang);
-const englishResume = getContact('en').resume;
-const spanishResume = getContact('es').resume;
+const resume = contact.resume;
+const cvTitle = lang === 'es' ? t('contact.cvEsTitle') : t('contact.cvEnTitle');
+const cvDownload =
+  lang === 'es' ? t('contact.cvEsDownload') : t('contact.cvEnDownload');
 ---
 
 <section class="pane pane-contact" aria-labelledby="contact-title">
@@ -59,28 +61,15 @@ const spanishResume = getContact('es').resume;
         <ul class="cv-list">
           <li>
             <a
-              href={englishResume.path}
-              download={englishResume.filename}
-              hreflang="en"
+              href={resume.path}
+              download={resume.filename}
+              hreflang={lang}
               class="terminal-line"
-              title={t('contact.cvEnTitle')}
-              aria-label={`${englishResume.filename} — ${t('contact.cvEnDownload')}`}
+              title={cvTitle}
+              aria-label={`${resume.filename} — ${cvDownload}`}
             >
-              <span class="cv-filename">{englishResume.filename}</span>
-              <span class="cv-download">[{t('contact.cvEnDownload')}]</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href={spanishResume.path}
-              download={spanishResume.filename}
-              hreflang="es"
-              class="terminal-line"
-              title={t('contact.cvEsTitle')}
-              aria-label={`${spanishResume.filename} — ${t('contact.cvEsDownload')}`}
-            >
-              <span class="cv-filename">{spanishResume.filename}</span>
-              <span class="cv-download">[{t('contact.cvEsDownload')}]</span>
+              <span class="cv-filename">{resume.filename}</span>
+              <span class="cv-download">[{cvDownload}]</span>
             </a>
           </li>
         </ul>
