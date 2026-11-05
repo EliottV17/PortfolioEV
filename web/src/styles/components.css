@@ -656,6 +656,13 @@ a.terminal-line:focus-visible {
   font-size: 10.5px;
 }
 
+.status-encoding svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
 .status-lang {
   display: inline-flex;
   align-items: center;

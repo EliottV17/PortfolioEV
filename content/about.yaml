@@ -3,13 +3,13 @@ profile:
   content:
     en:
       eyebrow: "// hello, i'm"
-      role: "Software Engineer | TypeScript, Go & React/Next.js"
-      bio: "Software Engineer with a strong backend focus: building REST APIs and concurrent services with TypeScript, NestJS, Go, and PostgreSQL, alongside React and Next.js frontend knowledge. Open to backend and full-stack opportunities."
+      role: "Software Engineer | Full Stack (TypeScript, Python & React/Next.js)"
+      bio: "Software Engineer with a strong backend focus: building REST APIs, asynchronous services, and Applied AI integrations with TypeScript, Node.js, Python (FastAPI), and PostgreSQL, alongside modern frontend interfaces with React and Next.js. Open to backend and full-stack opportunities."
       location: "⌁ Lima, Peru"
       status: "◷ seeking opportunities"
     es:
       eyebrow: "// hola, soy"
       role: "Desarrollador Full Stack | TypeScript, Go y React/Next.js"
-      bio: "Desarrollador Full Stack con fuerte enfoque en backend: construyo APIs REST y servicios concurrentes con TypeScript, NestJS, Go y PostgreSQL, además de conocimientos frontend con React y Next.js. Abierto a oportunidades de backend y desarrollo full stack."
+      bio: "Desarrollador Full Stack con fuerte enfoque en backend: construyo APIs REST, servicios asíncronos e integraciones de IA con TypeScript, Node.js, Python (FastAPI) y PostgreSQL, además de interfaces modernas con React y Next.js. Abierto a oportunidades de backend y desarrollo full stack."
       location: "⌁ Lima, Perú"
       status: "◷ en búsqueda de oportunidades"

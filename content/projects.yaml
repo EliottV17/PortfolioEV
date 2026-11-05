@@ -14,7 +14,7 @@ projects:
       - Docker
       - AWS EC2
     color: red
-    techIcon: go
+    techIcon: ts
     diagram: |1
      
             ┌────────────────────────┐
@@ -53,13 +53,133 @@ projects:
                         └───────────────────┘
     content:
       en:
-        detail: 'Sentinel is a distributed monitoring platform with a NestJS API and an independent Go worker for checking configured targets. I built it with production reliability and security in mind, and deployed it on AWS.'
+        detail: 'Sentinel is a distributed uptime monitoring platform featuring a decoupled NestJS REST API and an independent Go worker for concurrent endpoint verification, designed for production resilience and deployed on AWS.'
         highlights:
-          - 'Independent Go worker for distributed monitoring'
+          - 'Concurrent Go worker: goroutines with channel-based bounded concurrency and pgxpool, load-tested locally with 5,000 monitors'
+          - 'Network security & SSRF defense: custom DNS resolution with socket pinning against DNS rebinding, private IP blocking, and rate limiting'
+          - 'Cloud deployment & CI/CD: AWS EC2, Docker Compose, Caddy reverse proxy with automatic HTTPS, and GitHub Actions with 250+ automated tests'
       es:
-        detail: 'Sentinel es una plataforma distribuida de monitoreo con una API NestJS y un worker independiente en Go para verificar destinos configurados. La desarrollé considerando la confiabilidad y seguridad en producción, y la desplegué en AWS.'
+        detail: 'Sentinel es una plataforma distribuida de monitoreo de disponibilidad con una API REST en NestJS y un worker independiente en Go para verificación concurrente de endpoints, diseñada para alta confiabilidad y desplegada en AWS.'
         highlights:
-          - 'Worker Go independiente para monitoreo distribuido'
+          - 'Worker concurrente en Go: goroutines con concurrencia acotada por canales y pgxpool, probado bajo carga con 5.000 monitores'
+          - 'Seguridad de red y mitigación de SSRF: resolución DNS con socket pinning contra DNS rebinding, bloqueo de IPs privadas y rate limiting'
+          - 'Despliegue en la nube y CI/CD: AWS EC2, Docker Compose, Caddy con HTTPS automático y CI en GitHub Actions con más de 250 pruebas automatizadas'
+  - id: inteldigest
+    name: IntelDigest
+    links: 
+      github: https://github.com/EliottV17/IntelDigest
+    stack:
+      - Python
+      - FastAPI
+      - Pydantic V2
+      - PostgreSQL
+      - asyncpg
+      - Redis Streams
+      - aiohttp
+      - OpenRouter
+      - Next.js
+      - Docker
+    color: blue
+    techIcon: py
+    filename: inteldigest.py
+    content:
+      en:
+        detail: 'Asynchronous web article technical digest generator. A FastAPI service ingests URLs with HTTP 202 Accepted and enqueues jobs in Redis Streams. A background worker scrapes content with SSRF-safe networking and leverages OpenRouter to generate structured digests enforced by strict Pydantic JSON schemas, persisting atomic state transitions in PostgreSQL.'
+        highlights:
+          - 'Asynchronous task queue: decoupled HTTP ingestion from background processing using Redis Streams consumer groups'
+          - 'Defensive web scraping: custom aiohttp connector coupling DNS resolution to IP pinning against IANA/RFC 6890 ranges'
+          - 'Applied AI & Structured Outputs: enforced JSON Schema contracts via Pydantic for LLM responses and atomic state transitions in PostgreSQL'
+      es:
+        detail: 'Motor asíncrono de ingesta y análisis técnico de artículos web. Un servicio en FastAPI recibe URLs con HTTP 202 Accepted y encola trabajos en Redis Streams. Un worker en segundo plano extrae contenido con validaciones de red contra SSRF y utiliza OpenRouter para generar resúmenes con esquemas estrictos validados por Pydantic, persistiendo transiciones de estado atómicas en PostgreSQL.'
+        highlights:
+          - 'Cola de tareas asíncrona: desacoplamiento de la ingesta HTTP y el procesamiento en background mediante grupos de consumidores en Redis Streams'
+          - 'Scraping web defensivo: conector aiohttp personalizado con resolución DNS e IP pinning acoplado contra rangos IANA/RFC 6890'
+          - 'IA Aplicada y Structured Outputs: contratos gobernados por JSON Schema con Pydantic para respuestas de LLM y transiciones de estado atómicas en PostgreSQL'
+  - id: tenantInbox
+    name: TenantInbox
+    links:
+      github: https://github.com/EliottV17/TenantInbox
+      web: https://tenant-inbox-ten.vercel.app/inbox
+    stack:
+      - Next.js (App Router)
+      - TypeScript
+      - Convex
+      - OpenRouter (GLM-5.3-flash)
+      - Zod 4
+      - Tailwind CSS v4
+      - shadcn/ui
+      - Bun
+      - Vitest
+    color: green
+    techIcon: ts
+    filename: tenantinbox.ts
+    diagram: |
+      ┌─────────────────┐   ┌─────────────────┐
+      │   Inbox form    │   │  POST webhook   │
+      └────────┬────────┘   └────────┬────────┘
+               │                     │
+               ▼                     ▼
+      ┌─────────────────┐   ┌─────────────────┐
+      │ Create mutation │   │ Webhook handler │
+      └────────┬────────┘   └────────┬────────┘
+               └──────────┬──────────┘
+                          ▼
+              ┌───────────────────────┐
+              │   Save message: new   │
+              └───────────┬───────────┘
+                          │
+                          ▼
+             ┌─────────────────────────┐
+             │ Schedule classification │
+             └────────────┬────────────┘
+                          │
+                          ▼
+              ┌───────────────────────┐
+              │ Classification action │
+              └───────────┬───────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │ State + usage guard │
+               └──────────┬──────────┘
+                          │
+                          ▼
+          ┌───────────────────────────────┐
+          │ OpenRouter structured output  │
+          └───────────────┬───────────────┘
+                          │
+                          ▼
+         ┌─────────────────────────────────┐
+         │ Parse JSON + validate with Zod  │
+         └─────┬─────────────────────┬─────┘
+               │                     │
+               ▼                     ▼
+        ┌─────────────┐       ┌─────────────┐
+        │ Save result │       │ Mark failed │
+        └──────┬──────┘       └──────┬──────┘
+               └──────────┬──────────┘
+                          ▼
+                 ┌─────────────────┐
+                 │ Reactive inbox  │
+                 └────────┬────────┘
+                          │
+                          ▼
+             ┌─────────────────────────┐
+             │ Human reviews and acts  │
+             └─────────────────────────┘
+    content:
+      en:
+        detail: 'Real-time web platform that centralizes tenant messages received via form and webhook. An AI agent classifies them by category and urgency, writes a summary and drafts a reply that a person reviews and approves before sending.'
+        highlights:
+          - 'State-machine pipeline: idempotent transitions (new → classifying → classified | failed)'
+          - 'Webhook with shared secret and constant-time comparison; daily classification cap'
+          - 'Zod as single source of truth: validates model output and generates the JSON Schema'
+      es:
+        detail: 'Plataforma web en tiempo real que centraliza los mensajes de inquilinos recibidos por formulario y webhook. Un agente de IA los clasifica por categoría y urgencia, genera un resumen y propone un borrador de respuesta que una persona revisa y aprueba antes de enviarlo.'
+        highlights:
+          - 'Pipeline como máquina de estados: transiciones idempotentes (new → classifying → classified | failed)'
+          - 'Webhook con secreto compartido y comparación en tiempo constante; tope diario de clasificaciones'
+          - 'Zod como fuente única de verdad: valida la respuesta del modelo y genera el JSON Schema'
   - id: gymBuddy
     name: Gym Buddy
     links:
@@ -167,104 +287,3 @@ projects:
         highlights:
           - 'Descubrimiento geoespacial: orden por distancia real con ST_Distance de PostGIS, excluyendo usuarios ya swipeados'
           - 'Matching seguro ante concurrencia: índices únicos compuestos en swipes y matches, swipes duplicados resueltos con 409'
-  - id: tenantInbox
-    name: TenantInbox
-    links:
-      github: https://github.com/EliottV17/TenantInbox
-      web: https://tenant-inbox-ten.vercel.app/inbox
-    stack:
-      - Next.js (App Router)
-      - TypeScript
-      - Convex
-      - OpenRouter (GLM-5.3-flash)
-      - Zod 4
-      - Tailwind CSS v4
-      - shadcn/ui
-      - Bun
-      - Vitest
-    color: green
-    techIcon: ts
-    filename: tenantinbox.ts
-    diagram: |
-      ┌─────────────────┐   ┌─────────────────┐
-      │   Inbox form    │   │  POST webhook   │
-      └────────┬────────┘   └────────┬────────┘
-               │                     │
-               ▼                     ▼
-      ┌─────────────────┐   ┌─────────────────┐
-      │ Create mutation │   │ Webhook handler │
-      └────────┬────────┘   └────────┬────────┘
-               └──────────┬──────────┘
-                          ▼
-              ┌───────────────────────┐
-              │   Save message: new   │
-              └───────────┬───────────┘
-                          │
-                          ▼
-             ┌─────────────────────────┐
-             │ Schedule classification │
-             └────────────┬────────────┘
-                          │
-                          ▼
-              ┌───────────────────────┐
-              │ Classification action │
-              └───────────┬───────────┘
-                          │
-                          ▼
-               ┌─────────────────────┐
-               │ State + usage guard │
-               └──────────┬──────────┘
-                          │
-                          ▼
-          ┌───────────────────────────────┐
-          │ OpenRouter structured output  │
-          └───────────────┬───────────────┘
-                          │
-                          ▼
-         ┌─────────────────────────────────┐
-         │ Parse JSON + validate with Zod  │
-         └─────┬─────────────────────┬─────┘
-               │                     │
-               ▼                     ▼
-        ┌─────────────┐       ┌─────────────┐
-        │ Save result │       │ Mark failed │
-        └──────┬──────┘       └──────┬──────┘
-               └──────────┬──────────┘
-                          ▼
-                 ┌─────────────────┐
-                 │ Reactive inbox  │
-                 └────────┬────────┘
-                          │
-                          ▼
-             ┌─────────────────────────┐
-             │ Human reviews and acts  │
-             └─────────────────────────┘
-    content:
-      en:
-        detail: 'Real-time web platform that centralizes tenant messages received via form and webhook. An AI agent classifies them by category and urgency, writes a summary and drafts a reply that a person reviews and approves before sending.'
-        highlights:
-          - 'State-machine pipeline: idempotent transitions (new → classifying → classified | failed)'
-          - 'Webhook with shared secret and constant-time comparison; daily classification cap'
-          - 'Zod as single source of truth: validates model output and generates the JSON Schema'
-      es:
-        detail: 'Plataforma web en tiempo real que centraliza los mensajes de inquilinos recibidos por formulario y webhook. Un agente de IA los clasifica por categoría y urgencia, genera un resumen y propone un borrador de respuesta que una persona revisa y aprueba antes de enviarlo.'
-        highlights:
-          - 'Pipeline como máquina de estados: transiciones idempotentes (new → classifying → classified | failed)'
-          - 'Webhook con secreto compartido y comparación en tiempo constante; tope diario de clasificaciones'
-          - 'Zod como fuente única de verdad: valida la respuesta del modelo y genera el JSON Schema'
-  - id: inteldigest
-    name: IntelDigest
-    links: {}
-    stack:
-      - Go
-      - PostgreSQL
-      - Redis
-      - OpenRouter
-    color: blue
-    techIcon: go
-    filename: inteldigest.go
-    content:
-      en:
-        detail: 'Article ingestion and analysis engine (July 2026–present). An asynchronous Go service accepts analysis requests with HTTP 202 Accepted while a separate worker processes jobs using PostgreSQL and Redis. OpenRouter LLM output is validated against typed Go structs before persistence.'
-      es:
-        detail: 'Motor de ingesta y análisis de artículos (julio de 2026–presente). Un servicio asíncrono en Go acepta solicitudes de análisis con HTTP 202 Accepted mientras un worker independiente procesa trabajos con PostgreSQL y Redis. La salida del LLM de OpenRouter se valida con estructuras tipadas de Go antes de persistirla.'

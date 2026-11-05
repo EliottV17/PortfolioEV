@@ -19,8 +19,8 @@ content:
     status: En búsqueda de oportunidades
 resumes:
   en:
-    path: /Eliott_Velarde_Software_Engineer_Resume.pdf
-    filename: Eliott_Velarde_Software_Engineer_Resume.pdf
+    path: /Eliott_Velarde_FullStack_Engineer_Resume.pdf
+    filename: Eliott_Velarde_FullStack_Engineer_Resume.pdf
   es:
-    path: /Eliott_Velarde_Desarrollador_Full_Stack_CV.pdf
-    filename: Eliott_Velarde_Desarrollador_Full_Stack_CV.pdf
+    path: /Eliott_Velarde_FullStack_Developer.pdf
+    filename: Eliott_Velarde_FullStack_Developer.pdf

@@ -3,11 +3,11 @@ experiences:
       en:
         date: "January 2026 — Present"
         role: "Personal Projects · Software Engineer"
-        description: "I build backend services with TypeScript and Go and frontend interfaces with React and Next.js for personal projects such as Sentinel and IntelDigest, which is still under development, combining REST APIs, asynchronous processing, and deployment with a strong backend focus."
+        description: "I build distributed backend systems with TypeScript and Python (FastAPI), concurrent services in Go, and modern interfaces with React and Next.js for projects such as Sentinel and IntelDigest, combining REST APIs, asynchronous worker queues, Applied AI integrations, and cloud deployments."
       es:
         date: "Enero 2026 — Presente"
         role: "Proyectos propios · Desarrollador Full Stack"
-        description: "Desarrollo servicios backend con TypeScript y Go e interfaces frontend con React y Next.js para proyectos propios como Sentinel e IntelDigest, este último aún en construcción, combinando APIs REST, procesamiento asíncrono y despliegue con un fuerte enfoque en backend."
+        description: "Desarrollo sistemas backend distribuidos con TypeScript y Python (FastAPI), servicios concurrentes en Go e interfaces modernas con React y Next.js para proyectos como Sentinel e IntelDigest, combinando APIs REST, colas de procesamiento asíncrono, integración de modelos de lenguaje (Applied AI) y despliegue en la nube."
   - content:
       en:
         date: "April 2026 — July 2026"

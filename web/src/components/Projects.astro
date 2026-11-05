@@ -2,6 +2,7 @@
 import { useTranslations, defaultLang } from '../i18n/ui';
 import TsIcon from '../assets/icons/typescript.svg';
 import GoIcon from '../assets/icons/go.svg';
+import PyIcon from '../assets/icons/python.svg';
 import { getProjects } from '../lib/projects';
 
 interface Props {
@@ -207,8 +208,10 @@ const projectsDataJson = JSON.stringify(
                 <span class={`tech-icon-slot ${p.techIcon}`} aria-hidden="true">
                   {p.techIcon === 'ts' && <TsIcon />}
                   {p.techIcon === 'go' && <GoIcon />}
+                  {p.techIcon === 'py' && <PyIcon />}
                 </span>
                 <span class="item-project-title">{p.name}</span>
+
               </li>
             ))
           }
